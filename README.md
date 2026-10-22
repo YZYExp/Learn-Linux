@@ -41,7 +41,7 @@ python3 scripts/build_book.py
 git clone history.git.bundle linux-book-with-history
 ```
 
-未指定远端，也未推送到任何旧书仓库。具体检查与未覆盖范围见 [核查记录](references/validation.md)。
+远端仓库为 `https://github.com/YZYExp/Learn-Linux.git`。具体检查与未覆盖范围见 [核查记录](references/validation.md)。
 
 第 1.1 版的独立审稿意见、证据和处理结果见 [交叉审稿记录](references/reviews/summary.md)。
 
@@ -52,13 +52,24 @@ git clone history.git.bundle linux-book-with-history
 
 ```sh
 python3 -m pip install -r site/requirements.txt
-python3 scripts/build_book.py
 python3 scripts/build_site.py --base-path /Learn-Linux/
 ```
 
 输出为 `build/site/`；本地从域名根目录预览时，可将 `--base-path` 改为 `/`。图解使用原始 SVG，保持完整比例，正文中可打开原图。
 
-`.github/workflows/pages.yml` 在推送 main 和手动运行时构建全书、检查图片并发布页面；拉取请求只做构建检查。CI 使用完整 Git 历史，以验证根提交只含空 README；同时保存 EPUB、合订 Markdown 与验证报告作为 Actions artifacts。构建依赖 Pandoc、Inkscape、Noto CJK 字体、Markdown 和 Pillow，安装步骤已写入工作流。
+网页发布与整书导出独立运行：
+
+- `.github/workflows/pages.yml`：推送 main 时发布页面，拉取请求做构建检查。只安装 Markdown 和 Pillow，不运行 apt，也不安装 Pandoc、Inkscape 或字体。保留章节、引用、SVG、根提交及网页本地链接检查。
+- `.github/workflows/build-book.yml`：书稿、图源或导出工具变化时独立构建 EPUB，也可手动运行。此流程才安装 Pandoc、Inkscape、Noto CJK 字体，并完整解码检查 21 幅内嵌图片。成功后在该次运行的 Artifacts 中下载 `linux-book` 压缩包；网站的“EPUB 构建与下载”链接指向此流程。整书导出失败不会阻塞网页发布。
+
+本地如需在网站中附带已构建的 EPUB，可显式传入文件，构建器会先校验再复制；未传入时不依赖本地残留产物：
+
+```sh
+python3 scripts/build_book.py
+python3 scripts/build_site.py --base-path /Learn-Linux/ --epub build/Linux-From-the-Ground-Up.epub
+```
+
+Actions artifact 下载需要登录 GitHub。网页阅读无需登录。
 
 首次发布需要在仓库 Settings → Pages → Build and deployment 中将 Source 选为 **GitHub Actions**。工作流不内置访问令牌，也不通过扩大仓库访问权限来替代这一设置；启用后重新运行即可部署。
 

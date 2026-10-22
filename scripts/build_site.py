@@ -1,6 +1,5 @@
 """Build the Pages reading site from the book's single Markdown source tree."""
 import argparse
-from collections import Counter
 from html import escape
 from html.parser import HTMLParser
 import json
@@ -131,7 +130,10 @@ def navigation(book,base,current):
     output+=f'<li><a href="{base}read/sources/">来源总索引</a></li><li><a href="{base}read/review/">审稿与修订</a></li></ol></div></aside>'
     return output
 
-def homepage(book,stats,base):
+def homepage(book,stats,base,epub_available=False):
+    download_url=base+'downloads/Linux-From-the-Ground-Up.epub' if epub_available else 'https://github.com/YZYExp/Learn-Linux/actions/workflows/build-book.yml'
+    download_label='下载 EPUB ↓' if epub_available else 'EPUB 构建与下载 ↗'
+    download_attribute=' download' if epub_available else ''
     groups=''
     for number,title,description,first,last in PARTS:
         rows=''
@@ -145,7 +147,7 @@ def homepage(book,stats,base):
     for slug,title,caption in [('08-fuse','FUSE','同一个文件接口，跨过内核与用户态。'),('09-overlayfs','OverlayFS','目录层怎样形成一份合并视图。'),('12-kvm','KVM','执行控制与设备后端的协作边界。')]:
         gallery+=f'<figure class="diagram-card"><a href="{base}read/{slug}/"><img src="{base}assets/images/{slug}.svg" alt="{title}机制图" loading="lazy"></a><figcaption><strong>{title}</strong><p>{caption}</p></figcaption></figure>'
     return f'''<main id="main" class="shell">
-<section class="hero"><div class="hero-copy"><p class="eyebrow">一本有来源、能串起来的系统原理读本</p><h1 class="hero-title">Linux，<br>自底向上<span aria-hidden="true">。</span></h1><p class="hero-subtitle">沿着一个请求，看懂整个系统。</p><p class="hero-description">从硬件、进程和文件开始，走到容器、虚拟机与 Android。面向有技术背景的读者，解释机制如何工作，以及它们的边界在哪里。</p><div class="actions"><a class="button primary" href="{base}read/00-preface/">开始阅读 <span aria-hidden="true">→</span></a><a class="button secondary" href="{base}downloads/Linux-From-the-Ground-Up.epub" download>下载 EPUB ↓</a></div><div class="stats"><div class="stat"><strong>{stats['chapters']}</strong><span>正文章节</span></div><div class="stat"><strong>{stats['mechanism_diagrams']}</strong><span>机制图解</span></div><div class="stat"><strong>{stats['distinct_cited_urls']}</strong><span>资料来源</span></div></div></div><figure class="hero-art"><img src="{base}assets/images/cover.webp" alt="从芯片、内核到应用生态的分层城市，AI概念插画，非技术证据" fetchpriority="high"><figcaption>从硬件到生态 · 概念插画</figcaption></figure></section>
+<section class="hero"><div class="hero-copy"><p class="eyebrow">一本有来源、能串起来的系统原理读本</p><h1 class="hero-title">Linux，<br>自底向上<span aria-hidden="true">。</span></h1><p class="hero-subtitle">沿着一个请求，看懂整个系统。</p><p class="hero-description">从硬件、进程和文件开始，走到容器、虚拟机与 Android。面向有技术背景的读者，解释机制如何工作，以及它们的边界在哪里。</p><div class="actions"><a class="button primary" href="{base}read/00-preface/">开始阅读 <span aria-hidden="true">→</span></a><a class="button secondary" href="{download_url}"{download_attribute}>{download_label}</a></div><div class="stats"><div class="stat"><strong>{stats['chapters']}</strong><span>正文章节</span></div><div class="stat"><strong>{stats['mechanism_diagrams']}</strong><span>机制图解</span></div><div class="stat"><strong>{stats['distinct_cited_urls']}</strong><span>资料来源</span></div></div></div><figure class="hero-art"><img src="{base}assets/images/cover.webp" alt="从芯片、内核到应用生态的分层城市，AI概念插画，非技术证据" fetchpriority="high"><figcaption>从硬件到生态 · 概念插画</figcaption></figure></section>
 <section class="section"><div class="section-heading"><p class="eyebrow">先把边界放回原位</p><h2>从“会用”，走向“理解为什么”。</h2><p>按层次建立地图，再把熟悉的特性接回它们依赖的机制。</p></div><div class="learning-map"><div class="map-step"><span>01</span><strong>执行</strong><small>谁在运行，谁在等待</small></div><div class="map-step"><span>02</span><strong>数据</strong><small>名字、缓存与持久化</small></div><div class="map-step"><span>03</span><strong>边界</strong><small>视图、资源与虚拟机器</small></div><div class="map-step"><span>04</span><strong>生态</strong><small>接口如何长成平台</small></div></div></section>
 <section id="chapters" class="section"><div class="section-heading"><p class="eyebrow">CONTENTS / 全书目录</p><h2>二十章，贯通一套系统。</h2><p>可以顺序读，也可以从熟悉的问题进入。预计阅读时长仅供安排节奏。</p></div>{groups}</section>
 <section class="section"><div class="section-heading"><p class="eyebrow">把关系画出来</p><h2>看得见的机制，核查得到的解释。</h2><p>图解保留关键对象和边界；具体事实旁边，就有原始资料。</p></div><div class="gallery">{gallery}</div></section>
@@ -181,8 +183,14 @@ def check_links(base):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--base-path',default='/Learn-Linux/')
+    parser.add_argument('--epub',type=Path,help='Optional validated EPUB to include as a direct download')
     args=parser.parse_args();base='/'+args.base_path.strip('/')+'/' if args.base_path.strip('/') else '/'
     book=load();stats,_=validate(book)
+    epub=args.epub.resolve() if args.epub else None
+    if epub is not None:
+        from build_book import verify_epub
+        verify_epub(epub,stats['mechanism_diagrams']+1)
+    if OUT.exists():shutil.rmtree(OUT)
     OUT.mkdir(parents=True,exist_ok=True)
     shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
     from PIL import Image
@@ -210,12 +218,11 @@ def main():
         target=OUT/'read'/c['slug'];target.mkdir(parents=True,exist_ok=True)
         (target/'index.html').write_text(page(c['title'],text[:150],body,base,book,True))
         search.append({'title':c['title'],'url':base+routes[(ROOT/c['source']).resolve()],'text':text,'kind':c['id']})
-    (OUT/'index.html').write_text(page('在线阅读',book['description'],homepage(book,stats,base),base,book))
+    (OUT/'index.html').write_text(page('在线阅读',book['description'],homepage(book,stats,base,epub is not None),base,book))
     (OUT/'search-index.json').write_text(json.dumps(search,ensure_ascii=False))
-    downloads=OUT/'downloads';downloads.mkdir(exist_ok=True)
-    epub=ROOT/'build/Linux-From-the-Ground-Up.epub'
-    if not epub.is_file():raise FileNotFoundError('Run scripts/build_book.py before the site build to create the EPUB download.')
-    shutil.copyfile(epub,downloads/epub.name)
+    if epub is not None:
+        downloads=OUT/'downloads';downloads.mkdir(exist_ok=True)
+        shutil.copyfile(epub,downloads/'Linux-From-the-Ground-Up.epub')
     (OUT/'.nojekyll').write_text('')
     check_links(base)
     print(f'Built website from {len(docs)} source documents at {OUT}; base {base}')
