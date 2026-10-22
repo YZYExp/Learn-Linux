@@ -1,0 +1,490 @@
+{
+  "scope": "执行基础：启动、进程、内存与ABI",
+  "sources": [
+    {
+      "key": "efi-stub",
+      "title": "The EFI Boot Stub",
+      "url": "https://docs.kernel.org/admin-guide/efi-stub.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "EFI stub可承担引导工作；不要求独立GRUB"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "early-userspace",
+      "title": "Early userspace support",
+      "url": "https://docs.kernel.org/driver-api/early-userspace/early_userspace_support.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "早期用户空间为启动期间所需工具提供运行环境"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "initramfs",
+      "title": "Ramfs, rootfs and initramfs",
+      "url": "https://docs.kernel.org/filesystems/ramfs-rootfs-initramfs.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "initramfs归档与/init",
+        "传统initrd与initramfs差异",
+        "页缓存干净页与回写的简述"
+      ],
+      "chapters": [
+        "02-boot",
+        "04-memory"
+      ]
+    },
+    {
+      "key": "systemd-bootup",
+      "title": "bootup — System bootup process",
+      "url": "https://www.freedesktop.org/software/systemd/man/latest/bootup.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "固件、引导器、内核、initramfs与系统管理器交接",
+        "服务启动的局部顺序和并行"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "init-failure",
+      "title": "Explaining the No working init found boot hang message",
+      "url": "https://docs.kernel.org/admin-guide/init.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "init失败可能源于根文件系统、依赖或架构"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "systemd-unit",
+      "title": "systemd.unit — Unit configuration",
+      "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "依赖关系与顺序关系分离"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "systemd-service",
+      "title": "systemd.service — Service unit configuration",
+      "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "Type=exec与Type=notify的就绪语义"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "systemd-analyze",
+      "title": "systemd-analyze — Analyze and debug system manager",
+      "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd-analyze.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "critical-chain与启动耗时观察限制"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "pid-namespaces",
+      "title": "pid_namespaces(7)",
+      "url": "https://man7.org/linux/man-pages/man7/pid_namespaces.7.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "PID命名空间的init及退出影响"
+      ],
+      "chapters": [
+        "02-boot"
+      ]
+    },
+    {
+      "key": "proc",
+      "title": "The /proc Filesystem",
+      "url": "https://docs.kernel.org/filesystems/proc.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "进程信息接口与线程条目",
+        "maps和smaps_rollup的观察入口及权限"
+      ],
+      "chapters": [
+        "02-boot",
+        "03-process",
+        "04-memory"
+      ]
+    },
+    {
+      "key": "pthreads",
+      "title": "pthreads(7)",
+      "url": "https://man7.org/linux/man-pages/man7/pthreads.7.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "线程共享进程内存与文件描述符，各有栈和标识"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "clone",
+      "title": "clone(2)",
+      "url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "共享地址空间和描述符表等执行上下文的选择"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "fork",
+      "title": "fork(2)",
+      "url": "https://man7.org/linux/man-pages/man2/fork.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "创建子进程",
+        "写时复制与映射管理成本"
+      ],
+      "chapters": [
+        "03-process",
+        "04-memory"
+      ]
+    },
+    {
+      "key": "execve",
+      "title": "execve(2)",
+      "url": "https://man7.org/linux/man-pages/man2/execve.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "程序映像替换，不等于创建进程",
+        "ENOENT可来自解释器缺失"
+      ],
+      "chapters": [
+        "03-process",
+        "05-abi"
+      ]
+    },
+    {
+      "key": "wait",
+      "title": "wait(2)",
+      "url": "https://man7.org/linux/man-pages/man2/wait.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "等待子进程状态变化与僵尸回收"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "futex",
+      "title": "futex(7)",
+      "url": "https://man7.org/linux/man-pages/man7/futex.7.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "无竞争用户空间路径和竞争下的内核协调"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "ps",
+      "title": "ps(1)",
+      "url": "https://man7.org/linux/man-pages/man1/ps.1.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "进程线程快照、状态及输出字段"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "cfs",
+      "title": "CFS Scheduler",
+      "url": "https://docs.kernel.org/scheduler/sched-design-CFS.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "虚拟运行时间与公平调度的历史模型"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "eevdf",
+      "title": "EEVDF Scheduler",
+      "url": "https://docs.kernel.org/scheduler/sched-eevdf.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "6.6起转向EEVDF",
+        "资格与虚拟截止时间；不作为实时保证"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "sched",
+      "title": "sched(7)",
+      "url": "https://man7.org/linux/man-pages/man7/sched.7.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "调度策略接口与实时策略边界；不采用页面仍称CFS默认的现况断言"
+      ],
+      "chapters": [
+        "03-process"
+      ]
+    },
+    {
+      "key": "getrusage",
+      "title": "getrusage(2)",
+      "url": "https://man7.org/linux/man-pages/man2/getrusage.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "自愿与非自愿上下文切换",
+        "minor/major fault统计意义"
+      ],
+      "chapters": [
+        "03-process",
+        "04-memory"
+      ]
+    },
+    {
+      "key": "memory-concepts",
+      "title": "Concepts overview",
+      "url": "https://docs.kernel.org/admin-guide/mm/concepts.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "虚拟内存与物理页映射",
+        "回收、swap与OOM概览"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "page-tables",
+      "title": "Page Tables",
+      "url": "https://docs.kernel.org/mm/page_tables.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "MMU、TLB和页表层级折叠",
+        "缺页异常可服务于惰性分配与COW"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "malloc",
+      "title": "malloc(3)",
+      "url": "https://man7.org/linux/man-pages/man3/malloc.3.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "分配器与内核内存管理的层次",
+        "free不保证RSS即时回落"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "overcommit",
+      "title": "Overcommit Accounting",
+      "url": "https://docs.kernel.org/mm/overcommit-accounting.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "分配承诺策略与未来可用物理资源的区别"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "mmap",
+      "title": "mmap(2)",
+      "url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "MAP_SHARED与MAP_PRIVATE的修改可见性和回写差异"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "meminfo",
+      "title": "proc_meminfo(5)",
+      "url": "https://man7.org/linux/man-pages/man5/proc_meminfo.5.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "MemFree、MemAvailable和文件缓存统计"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "smaps",
+      "title": "proc_pid_smaps(5)",
+      "url": "https://man7.org/linux/man-pages/man5/proc_pid_smaps.5.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "RSS、PSS、共享与私有页含义"
+      ],
+      "chapters": [
+        "04-memory"
+      ]
+    },
+    {
+      "key": "syscall",
+      "title": "syscall(2)",
+      "url": "https://man7.org/linux/man-pages/man2/syscall.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "架构ABI的系统调用参数传递约定"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "elf",
+      "title": "elf(5)",
+      "url": "https://man7.org/linux/man-pages/man5/elf.5.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "ELF文件头、程序头与节表的分工"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "dynamic-loader",
+      "title": "ld.so(8)",
+      "url": "https://man7.org/linux/man-pages/man8/ld.so.8.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "动态加载器查找共享对象并准备运行"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "musl-differences",
+      "title": "musl libc — Functional differences from glibc",
+      "url": "https://wiki.musl-libc.org/functional-differences-from-glibc.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "libc之间的扩展和动态加载差异；非任意二进制兼容承诺"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "vdso",
+      "title": "vdso(7)",
+      "url": "https://man7.org/linux/man-pages/man7/vdso.7.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "内核映射vDSO以支持部分用户空间快速路径"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "qemu-user",
+      "title": "QEMU User space emulator",
+      "url": "https://www.qemu.org/docs/master/user/main.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "用户态仿真处理系统调用及位宽字节序转换"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "kernel-interface",
+      "title": "The Linux Kernel Driver Interface",
+      "url": "https://docs.kernel.org/process/stable-api-nonsense.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "用户空间稳定接口与内核内部接口承诺不同"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    },
+    {
+      "key": "readelf",
+      "title": "readelf — GNU Binary Utilities",
+      "url": "https://sourceware.org/binutils/docs/binutils/readelf.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "读取ELF头、段、动态项和符号版本的命令"
+      ],
+      "chapters": [
+        "05-abi"
+      ]
+    }
+  ]
+}
