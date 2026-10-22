@@ -1,0 +1,342 @@
+[
+  {
+    "key": "root-1",
+    "title": "Linux 内核《README》",
+    "url": "https://docs.kernel.org/admin-guide/README.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      1
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-2",
+    "title": "内核 Entry/exit handling",
+    "url": "https://docs.kernel.org/core-api/entry.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      1
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-3",
+    "title": "内核 Dynamic DMA mapping Guide，“CPU and DMA addresses”",
+    "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      1
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-4",
+    "title": "Debian Administrator's Handbook，Package Meta-Information",
+    "url": "https://www.debian.org/doc/manuals/debian-handbook/sect.package-meta-information.en.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      1
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-5",
+    "title": "kernel.org，Releases，含 Distribution kernels",
+    "url": "https://www.kernel.org/category/releases.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      1
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-6",
+    "title": "内核 The Linux Kernel Driver Interface",
+    "url": "https://docs.kernel.org/process/stable-api-nonsense.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      1
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-7",
+    "title": "AOSP Architecture overview",
+    "url": "https://source.android.com/docs/core/architecture",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-8",
+    "title": "Bionic maintainer overview",
+    "url": "https://android.googlesource.com/platform/bionic/+/main/README.md",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-9",
+    "title": "AOSP Android runtime and Dalvik",
+    "url": "https://source.android.com/docs/core/runtime",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-10",
+    "title": "AOSP Use binder IPC",
+    "url": "https://source.android.com/docs/core/architecture/hidl/binder-ipc",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-11",
+    "title": "AOSP AIDL for HALs",
+    "url": "https://source.android.com/docs/core/architecture/aidl/aidl-hals",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-12",
+    "title": "AOSP HAL overview",
+    "url": "https://source.android.com/docs/core/architecture/hal",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-13",
+    "title": "AOSP Kernel overview",
+    "url": "https://source.android.com/docs/core/architecture/kernel",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-14",
+    "title": "Maintain a stable kernel module interface",
+    "url": "https://source.android.com/docs/core/architecture/kernel/stable-kmi",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-15",
+    "title": "AOSP Application Sandbox",
+    "url": "https://source.android.com/docs/security/app-sandbox",
+    "checked": "2026-10-22",
+    "chapters": [
+      18
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-16",
+    "title": "Apple XNU README",
+    "url": "https://github.com/apple-oss-distributions/xnu",
+    "checked": "2026-10-22",
+    "chapters": [
+      19
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-17",
+    "title": "Apple Kernel Architecture Overview，归档文档",
+    "url": "https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/Architecture/Architecture.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      19
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-18",
+    "title": "QEMU System Emulation Introduction，Supported Accelerators",
+    "url": "https://www.qemu.org/docs/master/system/introduction.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      19
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-19",
+    "title": "Docker Desktop Virtual Machine Manager",
+    "url": "https://docs.docker.com/desktop/features/vmm/",
+    "checked": "2026-10-22",
+    "chapters": [
+      19,
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-20",
+    "title": "Atmosphère mesosphère 组件文档",
+    "url": "https://github.com/Atmosphere-NX/Atmosphere/blob/master/docs/components/mesosphere.md",
+    "checked": "2026-10-22",
+    "chapters": [
+      19
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-21",
+    "title": "QEMU User Mode Emulation",
+    "url": "https://www.qemu.org/docs/master/user/main.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      19,
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-22",
+    "title": "Docker Bind mounts，Considerations and constraints",
+    "url": "https://docs.docker.com/engine/storage/bind-mounts/",
+    "checked": "2026-10-22",
+    "chapters": [
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-23",
+    "title": "Docker Volumes",
+    "url": "https://docs.docker.com/engine/storage/volumes/",
+    "checked": "2026-10-22",
+    "chapters": [
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-24",
+    "title": "Linux Control Group v2，CPU Interface Files",
+    "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-25",
+    "title": "Docker Desktop Networking，Overview 与 Backend components",
+    "url": "https://docs.docker.com/desktop/features/networking/",
+    "checked": "2026-10-22",
+    "chapters": [
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  },
+  {
+    "key": "root-26",
+    "title": "内核 PSI 文档",
+    "url": "https://docs.kernel.org/accounting/psi.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      20
+    ],
+    "support": [
+      "正文相邻段落所述机制与接口范围"
+    ],
+    "verification": "原始资料正文已读取；未宣称读者目标环境实测"
+  }
+]
