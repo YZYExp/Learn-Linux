@@ -1,0 +1,270 @@
+[
+  {
+    "key": "fileio-01",
+    "title": "Overview of the Linux Virtual File System",
+    "url": "https://docs.kernel.org/filesystems/vfs.html",
+    "checked": "2026-10-22",
+    "support": [
+      "VFS abstraction",
+      "dentry inode file object"
+    ]
+  },
+  {
+    "key": "fileio-02",
+    "title": "open(2)",
+    "url": "https://man7.org/linux/man-pages/man2/open.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "fd and open file description",
+      "independent open state"
+    ]
+  },
+  {
+    "key": "fileio-03",
+    "title": "unlink(2)",
+    "url": "https://man7.org/linux/man-pages/man2/unlink.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "unlink removes name",
+      "open references defer deletion"
+    ]
+  },
+  {
+    "key": "fileio-04",
+    "title": "path_resolution(7)",
+    "url": "https://man7.org/linux/man-pages/man7/path_resolution.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "absolute and relative path lookup",
+      "process root and mount views"
+    ]
+  },
+  {
+    "key": "fileio-05",
+    "title": "Pathname lookup",
+    "url": "https://docs.kernel.org/filesystems/path-lookup.html",
+    "checked": "2026-10-22",
+    "support": [
+      "negative dentries",
+      "concurrent path lookup"
+    ]
+  },
+  {
+    "key": "fileio-06",
+    "title": "dup(2)",
+    "url": "https://man7.org/linux/man-pages/man2/dup.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "shared offset after dup",
+      "per-descriptor flags"
+    ]
+  },
+  {
+    "key": "fileio-07",
+    "title": "proc_pid_mountinfo(5)",
+    "url": "https://man7.org/linux/man-pages/man5/proc_pid_mountinfo.5.html",
+    "checked": "2026-10-22",
+    "support": [
+      "per-process mount information",
+      "mountinfo field layout"
+    ]
+  },
+  {
+    "key": "fileio-08",
+    "title": "write(2)",
+    "url": "https://man7.org/linux/man-pages/man2/write.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "partial writes",
+      "write success is not durability"
+    ]
+  },
+  {
+    "key": "fileio-09",
+    "title": "fsync(2)",
+    "url": "https://man7.org/linux/man-pages/man2/fsync.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "data and metadata synchronization",
+      "directory sync boundary"
+    ]
+  },
+  {
+    "key": "fileio-10",
+    "title": "rename(2)",
+    "url": "https://man7.org/linux/man-pages/man2/rename.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "atomic target replacement",
+      "cross-filesystem restrictions"
+    ]
+  },
+  {
+    "key": "fileio-11",
+    "title": "Memory management concepts overview",
+    "url": "https://docs.kernel.org/admin-guide/mm/concepts.html",
+    "checked": "2026-10-22",
+    "support": [
+      "file page cache",
+      "dirty pages and writeback"
+    ]
+  },
+  {
+    "key": "fileio-12",
+    "title": "Multi-Queue Block IO Queueing Mechanism",
+    "url": "https://docs.kernel.org/block/blk-mq.html",
+    "checked": "2026-10-22",
+    "support": [
+      "software and hardware queues",
+      "parallel block I/O"
+    ]
+  },
+  {
+    "key": "fileio-13",
+    "title": "ext4 Journal (jbd2)",
+    "url": "https://docs.kernel.org/filesystems/ext4/journal.html",
+    "checked": "2026-10-22",
+    "support": [
+      "ext4 metadata journal",
+      "data modes and recovery"
+    ]
+  },
+  {
+    "key": "fileio-14",
+    "title": "Btrfs Introduction",
+    "url": "https://btrfs.readthedocs.io/en/latest/Introduction.html",
+    "checked": "2026-10-22",
+    "support": [
+      "Btrfs COW",
+      "snapshot reflink checksum features"
+    ]
+  },
+  {
+    "key": "fileio-15",
+    "title": "FUSE Overview",
+    "url": "https://docs.kernel.org/filesystems/fuse/fuse.html",
+    "checked": "2026-10-22",
+    "support": [
+      "FUSE framework and /dev/fuse",
+      "permissions and service dependencies"
+    ]
+  },
+  {
+    "key": "fileio-16",
+    "title": "FUSE I/O Modes",
+    "url": "https://docs.kernel.org/filesystems/fuse/fuse-io.html",
+    "checked": "2026-10-22",
+    "support": [
+      "direct I/O and cached modes",
+      "write-through and writeback cache"
+    ]
+  },
+  {
+    "key": "fileio-17",
+    "title": "libfuse fuse_operations Struct Reference",
+    "url": "https://libfuse.github.io/doxygen/structfuse__operations.html",
+    "checked": "2026-10-22",
+    "support": [
+      "callback API",
+      "flush release fsync distinction"
+    ]
+  },
+  {
+    "key": "fileio-18",
+    "title": "virtiofs: host guest shared file system",
+    "url": "https://docs.kernel.org/filesystems/virtiofs.html",
+    "checked": "2026-10-22",
+    "support": [
+      "FUSE protocol over virtqueues",
+      "host guest shared filesystem"
+    ]
+  },
+  {
+    "key": "fileio-19",
+    "title": "Overlay Filesystem",
+    "url": "https://docs.kernel.org/filesystems/overlayfs.html",
+    "checked": "2026-10-22",
+    "support": [
+      "layers copy-up whiteouts",
+      "metacopy and redirect_dir conditions"
+    ]
+  },
+  {
+    "key": "fileio-20",
+    "title": "OverlayFS storage driver",
+    "url": "https://docs.docker.com/engine/storage/drivers/overlayfs-driver/",
+    "checked": "2026-10-22",
+    "support": [
+      "overlay2 and OverlayFS distinction",
+      "copy-up costs"
+    ]
+  },
+  {
+    "key": "fileio-21",
+    "title": "Docker Storage",
+    "url": "https://docs.docker.com/engine/storage/",
+    "checked": "2026-10-22",
+    "support": [
+      "persistent mounts versus writable layers"
+    ]
+  },
+  {
+    "key": "fileio-22",
+    "title": "OCI Image Layer Filesystem Changeset",
+    "url": "https://github.com/opencontainers/image-spec/blob/main/layer.md",
+    "checked": "2026-10-22",
+    "support": [
+      "OCI changesets",
+      "archive whiteout representation"
+    ]
+  },
+  {
+    "key": "fileio-23",
+    "title": "fuse-overlayfs project README",
+    "url": "https://github.com/containers/fuse-overlayfs",
+    "checked": "2026-10-22",
+    "support": [
+      "userspace overlay implementation"
+    ]
+  },
+  {
+    "key": "fileio-24",
+    "title": "pipe(7)",
+    "url": "https://man7.org/linux/man-pages/man7/pipe.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "byte stream pipe semantics",
+      "blocking EOF and descriptor references"
+    ]
+  },
+  {
+    "key": "fileio-25",
+    "title": "tmpfs(5)",
+    "url": "https://man7.org/linux/man-pages/man5/tmpfs.5.html",
+    "checked": "2026-10-22",
+    "support": [
+      "virtual-memory backing",
+      "swap capacity and lifetime"
+    ]
+  },
+  {
+    "key": "fileio-26",
+    "title": "SSHFS README",
+    "url": "https://github.com/libfuse/sshfs",
+    "checked": "2026-10-22",
+    "support": [
+      "SFTP-backed filesystem",
+      "declared maintenance status on check date"
+    ]
+  },
+  {
+    "key": "fileio-27",
+    "title": "Docker Build secrets",
+    "url": "https://docs.docker.com/build/building/secrets/",
+    "checked": "2026-10-22",
+    "support": [
+      "temporary secret mounts",
+      "ordinary build arguments and environment persistence"
+    ]
+  }
+]
