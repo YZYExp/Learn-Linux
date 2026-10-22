@@ -1,0 +1,173 @@
+{
+  "title": "Linux，自底向上",
+  "subtitle": "从硬件与进程，到文件系统、容器、虚拟化与系统生态",
+  "language": "zh-CN",
+  "edition": "1.0",
+  "date": "2026-10-22",
+  "description": "面向已有软件背景读者的图解原理读本，以机制、边界与可核查来源组织知识。",
+  "cover": "assets/images/cover.png",
+  "chapters": [
+    {
+      "id": "00",
+      "title": "导读：学会沿着边界追问",
+      "order": 0,
+      "source": "chapters/00-preface.md",
+      "slug": "00-preface"
+    },
+    {
+      "id": "01",
+      "title": "计算机、内核与发行版：先建立地图",
+      "order": 1,
+      "source": "chapters/01-map.md",
+      "slug": "01-map"
+    },
+    {
+      "id": "02",
+      "title": "从通电到服务：系统怎样活过来",
+      "order": 2,
+      "source": "chapters/02-boot.md",
+      "slug": "02-boot"
+    },
+    {
+      "id": "03",
+      "title": "进程与线程：谁在运行，谁在等待",
+      "order": 3,
+      "source": "chapters/03-process.md",
+      "slug": "03-process"
+    },
+    {
+      "id": "04",
+      "title": "内存：地址是一份受管理的承诺",
+      "order": 4,
+      "source": "chapters/04-memory.md",
+      "slug": "04-memory"
+    },
+    {
+      "id": "05",
+      "title": "程序怎样运行：从 ELF 到系统调用",
+      "order": 5,
+      "source": "chapters/05-abi.md",
+      "slug": "05-abi"
+    },
+    {
+      "id": "06",
+      "title": "文件：名字、对象与打开的关系",
+      "order": 6,
+      "source": "chapters/06-vfs.md",
+      "slug": "06-vfs"
+    },
+    {
+      "id": "07",
+      "title": "存储：写成功以后，数据在哪里",
+      "order": 7,
+      "source": "chapters/07-storage.md",
+      "slug": "07-storage"
+    },
+    {
+      "id": "08",
+      "title": "FUSE：把文件系统的实现搬到用户态",
+      "order": 8,
+      "source": "chapters/08-fuse.md",
+      "slug": "08-fuse"
+    },
+    {
+      "id": "09",
+      "title": "OverlayFS：怎样把多层目录读成一层",
+      "order": 9,
+      "source": "chapters/09-overlayfs.md",
+      "slug": "09-overlayfs"
+    },
+    {
+      "id": "10",
+      "title": "隔离、预算与权限：三个不同的问题",
+      "order": 10,
+      "source": "chapters/10-isolation.md",
+      "slug": "10-isolation"
+    },
+    {
+      "id": "11",
+      "title": "容器：把内核机制组装成运行环境",
+      "order": 11,
+      "source": "chapters/11-containers.md",
+      "slug": "11-containers"
+    },
+    {
+      "id": "12",
+      "title": "KVM：让 Linux 管理另一台机器的执行",
+      "order": 12,
+      "source": "chapters/12-kvm.md",
+      "slug": "12-kvm"
+    },
+    {
+      "id": "13",
+      "title": "QEMU：模拟、虚拟化与跨架构的边界",
+      "order": 13,
+      "source": "chapters/13-qemu.md",
+      "slug": "13-qemu"
+    },
+    {
+      "id": "14",
+      "title": "网络：从一个 socket 到另一端",
+      "order": 14,
+      "source": "chapters/14-network.md",
+      "slug": "14-network"
+    },
+    {
+      "id": "15",
+      "title": "eBPF 与异步 I/O：扩展观察与提交方式",
+      "order": 15,
+      "source": "chapters/15-ebpf.md",
+      "slug": "15-ebpf"
+    },
+    {
+      "id": "16",
+      "title": "驱动与桌面：屏幕背后的协作",
+      "order": 16,
+      "source": "chapters/16-devices-desktop.md",
+      "slug": "16-devices-desktop"
+    },
+    {
+      "id": "17",
+      "title": "可观测性：把慢与失败变成可检验的问题",
+      "order": 17,
+      "source": "chapters/17-observability.md",
+      "slug": "17-observability"
+    },
+    {
+      "id": "18",
+      "title": "Android：同一内核上长出的另一套平台",
+      "order": 18,
+      "source": "chapters/18-android.md",
+      "slug": "18-android"
+    },
+    {
+      "id": "19",
+      "title": "macOS 与 Switch：相似概念，不同系统",
+      "order": 19,
+      "source": "chapters/19-families.md",
+      "slug": "19-families"
+    },
+    {
+      "id": "20",
+      "title": "贯通全书：在 Mac 上追踪一个 Linux 服务",
+      "order": 20,
+      "source": "chapters/20-capstone.md",
+      "slug": "20-capstone"
+    }
+  ],
+  "appendices": [
+    {
+      "title": "阅读路线与术语索引",
+      "source": "appendices/reading-and-glossary.md"
+    },
+    {
+      "title": "引用规范与适用边界",
+      "source": "appendices/evidence-policy.md"
+    }
+  ],
+  "site": {
+    "source_directory": "site",
+    "implemented": false,
+    "content_source": "book.json"
+  }
+}
