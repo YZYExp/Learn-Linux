@@ -1,0 +1,447 @@
+[
+  {
+    "key": "NETOBS-01",
+    "title": "socket(7)",
+    "url": "https://man7.org/linux/man-pages/man7/socket.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "socket 接口与通信端点"
+    ]
+  },
+  {
+    "key": "NETOBS-02",
+    "title": "tcp(7)",
+    "url": "https://man7.org/linux/man-pages/man7/tcp.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "有序字节流不保存应用记录边界"
+    ]
+  },
+  {
+    "key": "NETOBS-03",
+    "title": "udp(7)",
+    "url": "https://man7.org/linux/man-pages/man7/udp.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "数据报语义与 UDP connect"
+    ]
+  },
+  {
+    "key": "NETOBS-04",
+    "title": "ip(7)",
+    "url": "https://man7.org/linux/man-pages/man7/ip.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "IPv4 回环与通配绑定"
+    ]
+  },
+  {
+    "key": "NETOBS-05",
+    "title": "network_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/network_namespaces.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "网络 namespace 资源与 localhost 边界"
+    ]
+  },
+  {
+    "key": "NETOBS-06",
+    "title": "veth(4)",
+    "url": "https://man7.org/linux/man-pages/man4/veth.4.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "成对虚拟以太网设备"
+    ]
+  },
+  {
+    "key": "NETOBS-07",
+    "title": "Ethernet Bridging",
+    "url": "https://docs.kernel.org/networking/bridge.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "bridge 二层 MAC 转发"
+    ]
+  },
+  {
+    "key": "NETOBS-08",
+    "title": "nftables NAT 文档",
+    "url": "https://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_%28NAT%29",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "有状态 NAT 绑定与连接跟踪"
+    ]
+  },
+  {
+    "key": "NETOBS-09",
+    "title": "resolv.conf(5)",
+    "url": "https://man7.org/linux/man-pages/man5/resolv.conf.5.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "用户态名字解析配置"
+    ]
+  },
+  {
+    "key": "NETOBS-10",
+    "title": "ip(8)",
+    "url": "https://man7.org/linux/man-pages/man8/ip.8.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "只读网络接口与路由查询"
+    ]
+  },
+  {
+    "key": "NETOBS-11",
+    "title": "ss(8)",
+    "url": "https://man7.org/linux/man-pages/man8/ss.8.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "14-network.md"
+    ],
+    "claims": [
+      "socket 监听状态查询"
+    ]
+  },
+  {
+    "key": "NETOBS-12",
+    "title": "bpf(2)",
+    "url": "https://man7.org/linux/man-pages/man2/bpf.2.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "BPF 加载及受约束执行"
+    ]
+  },
+  {
+    "key": "NETOBS-13",
+    "title": "eBPF verifier",
+    "url": "https://docs.kernel.org/bpf/verifier.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "类型、路径、内存边界检查"
+    ]
+  },
+  {
+    "key": "NETOBS-14",
+    "title": "BPF maps",
+    "url": "https://docs.kernel.org/bpf/maps.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "内核用户态共享状态"
+    ]
+  },
+  {
+    "key": "NETOBS-15",
+    "title": "Linux Socket Filtering 的 BPF 引擎说明",
+    "url": "https://docs.kernel.org/networking/filter.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "BPF JIT 与 tc 挂点"
+    ]
+  },
+  {
+    "key": "NETOBS-16",
+    "title": "BPF Type Format",
+    "url": "https://docs.kernel.org/bpf/btf.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "类型及调试元数据"
+    ]
+  },
+  {
+    "key": "NETOBS-17",
+    "title": "libbpf Overview",
+    "url": "https://docs.kernel.org/bpf/libbpf/libbpf_overview.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "加载重定位 CO-RE"
+    ]
+  },
+  {
+    "key": "NETOBS-18",
+    "title": "bpftrace Language",
+    "url": "https://bpftrace.org/docs/release_024/language",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "探针条件动作结构"
+    ]
+  },
+  {
+    "key": "NETOBS-19",
+    "title": "AF_XDP",
+    "url": "https://docs.kernel.org/networking/af_xdp.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "XDP 重定向及复制模式差异"
+    ]
+  },
+  {
+    "key": "NETOBS-20",
+    "title": "io_uring(7)",
+    "url": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "提交与完成队列"
+    ]
+  },
+  {
+    "key": "NETOBS-21",
+    "title": "epoll(7)",
+    "url": "https://man7.org/linux/man-pages/man7/epoll.7.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "15-ebpf.md"
+    ],
+    "claims": [
+      "就绪通知"
+    ]
+  },
+  {
+    "key": "NETOBS-22",
+    "title": "sysfs 文档",
+    "url": "https://docs.kernel.org/filesystems/sysfs.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md",
+      "17-observability.md"
+    ],
+    "claims": [
+      "内核对象及属性接口"
+    ]
+  },
+  {
+    "key": "NETOBS-23",
+    "title": "udev 手册",
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/udev.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "设备事件和用户态规则"
+    ]
+  },
+  {
+    "key": "NETOBS-24",
+    "title": "Building External Modules",
+    "url": "https://docs.kernel.org/kbuild/modules.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "外部模块构建环境要求"
+    ]
+  },
+  {
+    "key": "NETOBS-25",
+    "title": "DRM Userland interfaces",
+    "url": "https://docs.kernel.org/gpu/drm-uapi.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "DRM 用户态接口"
+    ]
+  },
+  {
+    "key": "NETOBS-26",
+    "title": "Kernel Mode Setting",
+    "url": "https://docs.kernel.org/gpu/drm-kms.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "显示输出模型"
+    ]
+  },
+  {
+    "key": "NETOBS-27",
+    "title": "Mesa Platforms and Drivers",
+    "url": "https://docs.mesa3d.org/systems.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "Mesa 硬件与软件驱动"
+    ]
+  },
+  {
+    "key": "NETOBS-28",
+    "title": "Wayland Architecture",
+    "url": "https://wayland.freedesktop.org/architecture.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "Wayland 合成器与客户端职责"
+    ]
+  },
+  {
+    "key": "NETOBS-29",
+    "title": "PipeWire Overview",
+    "url": "https://docs.pipewire.org/page_overview.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "PipeWire 图和会话策略"
+    ]
+  },
+  {
+    "key": "NETOBS-30",
+    "title": "NetworkManager 手册",
+    "url": "https://networkmanager.dev/docs/api/latest/NetworkManager.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "网络连接管理服务"
+    ]
+  },
+  {
+    "key": "NETOBS-31",
+    "title": "BlueZ 项目 README",
+    "url": "https://github.com/bluez/bluez/blob/master/README",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "BlueZ 用户态工具及守护进程"
+    ]
+  },
+  {
+    "key": "NETOBS-32",
+    "title": "lsmod(8)",
+    "url": "https://man7.org/linux/man-pages/man8/lsmod.8.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "16-devices-desktop.md"
+    ],
+    "claims": [
+      "已加载模块状态"
+    ]
+  },
+  {
+    "key": "NETOBS-33",
+    "title": "The /proc Filesystem",
+    "url": "https://docs.kernel.org/filesystems/proc.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "17-observability.md"
+    ],
+    "claims": [
+      "进程及系统观测接口"
+    ]
+  },
+  {
+    "key": "NETOBS-34",
+    "title": "PSI 文档",
+    "url": "https://www.kernel.org/doc/html/latest/accounting/psi.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "17-observability.md"
+    ],
+    "claims": [
+      "受阻时间 some full 语义"
+    ]
+  },
+  {
+    "key": "NETOBS-35",
+    "title": "strace 项目",
+    "url": "https://strace.io/",
+    "checked": "2026-10-22",
+    "chapters": [
+      "17-observability.md"
+    ],
+    "claims": [
+      "系统调用追踪"
+    ]
+  },
+  {
+    "key": "NETOBS-36",
+    "title": "perf-stat(1)",
+    "url": "https://man7.org/linux/man-pages/man1/perf-stat.1.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "17-observability.md"
+    ],
+    "claims": [
+      "性能计数统计"
+    ]
+  },
+  {
+    "key": "NETOBS-37",
+    "title": "Using the Linux Kernel Tracepoints",
+    "url": "https://docs.kernel.org/trace/tracepoints.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      "17-observability.md"
+    ],
+    "claims": [
+      "内核事件挂钩"
+    ]
+  }
+]
