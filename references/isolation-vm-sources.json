@@ -1,0 +1,450 @@
+[
+  {
+    "key": "namespaces",
+    "title": "namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "命名空间的类型、资源视图和 /proc 接口"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "mount-ns",
+    "title": "mount_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/mount_namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "挂载视图与挂载传播"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "network-ns",
+    "title": "network_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/network_namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "网络资源隔离与 veth"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "time-ns",
+    "title": "time_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/time_namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "单调时钟与启动时钟虚拟化范围"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "cgroup-v2",
+    "title": "Control Group v2",
+    "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "资源控制层级、cpu.max、memory.high、memory.max"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "user-ns",
+    "title": "user_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/user_namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "用户身份映射与特权范围"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "capabilities",
+    "title": "capabilities(7)",
+    "url": "https://man7.org/linux/man-pages/man7/capabilities.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "特权拆分与每线程能力"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "seccomp",
+    "title": "Seccomp BPF",
+    "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+    "checked": "2026-10-22",
+    "support": [
+      "系统调用过滤、不可解引用指针、不是完整沙箱"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "lsm",
+    "title": "Linux Security Module Usage",
+    "url": "https://docs.kernel.org/admin-guide/LSM/index.html",
+    "checked": "2026-10-22",
+    "support": [
+      "安全检查框架与 SELinux/AppArmor"
+    ],
+    "chapters": [
+      10
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "oci-image",
+    "title": "OCI Image Format Specification",
+    "url": "https://github.com/opencontainers/image-spec/blob/main/spec.md",
+    "checked": "2026-10-22",
+    "support": [
+      "清单、索引、层、配置与平台内容"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "oci-bundle",
+    "title": "OCI Filesystem Bundle",
+    "url": "https://github.com/opencontainers/runtime-spec/blob/main/bundle.md",
+    "checked": "2026-10-22",
+    "support": [
+      "config.json 与 rootfs"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "oci-linux",
+    "title": "OCI Linux Configuration",
+    "url": "https://github.com/opencontainers/runtime-spec/blob/main/config-linux.md",
+    "checked": "2026-10-22",
+    "support": [
+      "命名空间继承与加入、资源和映射配置"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "runc",
+    "title": "runc project README",
+    "url": "https://github.com/opencontainers/runc",
+    "checked": "2026-10-22",
+    "support": [
+      "按 OCI 规范运行容器的低层工具"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "containerd-scope",
+    "title": "containerd Scope and Principles",
+    "url": "https://containerd.io/scope/",
+    "checked": "2026-10-22",
+    "support": [
+      "执行、分发、快照的职责和扩展点"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "k8s-arch",
+    "title": "Kubernetes Cluster Architecture",
+    "url": "https://kubernetes.io/docs/concepts/architecture/",
+    "checked": "2026-10-22",
+    "support": [
+      "控制平面、节点和 Pod 的分工"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "pid-ns",
+    "title": "pid_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/pid_namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "PID 1、孤儿进程、退出与信号行为"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "docker-rootless",
+    "title": "Docker Rootless mode",
+    "url": "https://docs.docker.com/engine/security/rootless/",
+    "checked": "2026-10-22",
+    "support": [
+      "守护进程与容器的非 root 模式"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "docker-desktop-vmm",
+    "title": "Docker Desktop Virtual Machine Manager",
+    "url": "https://docs.docker.com/desktop/features/vmm/",
+    "checked": "2026-10-22",
+    "support": [
+      "Linux VM 承载 Linux 容器"
+    ],
+    "chapters": [
+      11
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "kvm-api",
+    "title": "The Definitive KVM API Documentation",
+    "url": "https://docs.kernel.org/virt/kvm/api.html",
+    "checked": "2026-10-22",
+    "support": [
+      "VM/vCPU 文件描述符、ioctl、KVM_RUN 与能力查询"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "kvm-nested",
+    "title": "Running nested guests with KVM",
+    "url": "https://docs.kernel.org/virt/kvm/x86/running-nested-guests.html",
+    "checked": "2026-10-22",
+    "support": [
+      "L0/L1/L2 控制层次与硬件虚拟化扩展"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "kvm-x86-mmu",
+    "title": "The x86 kvm shadow mmu",
+    "url": "https://docs.kernel.org/virt/kvm/x86/mmu.html",
+    "checked": "2026-10-22",
+    "support": [
+      "GVA/GPA/HPA 与 EPT/NPT、影子页表"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "qemu-intro",
+    "title": "QEMU Introduction",
+    "url": "https://www.qemu.org/docs/master/system/introduction.html",
+    "checked": "2026-10-22",
+    "support": [
+      "机器/设备模型与后端分工"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "virtio",
+    "title": "Virtio on Linux",
+    "url": "https://docs.kernel.org/driver-api/virtio/virtio.html",
+    "checked": "2026-10-22",
+    "support": [
+      "标准驱动设备协议、共享内存队列"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "vhost-user",
+    "title": "QEMU Vhost-user Protocol",
+    "url": "https://www.qemu.org/docs/master/interop/vhost-user.html",
+    "checked": "2026-10-22",
+    "support": [
+      "用户空间设备后端与 virtqueue 共享"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "vfio",
+    "title": "VFIO Virtual Function I/O",
+    "url": "https://docs.kernel.org/driver-api/vfio.html",
+    "checked": "2026-10-22",
+    "support": [
+      "IOMMU、DMA 隔离与设备分组"
+    ],
+    "chapters": [
+      12
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "qemu-user",
+    "title": "QEMU User space emulator",
+    "url": "https://www.qemu.org/docs/master/user/main.html",
+    "checked": "2026-10-22",
+    "support": [
+      "系统调用转换、信号与用户模式边界"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "qemu-virt",
+    "title": "QEMU ARM virt generic virtual platform",
+    "url": "https://www.qemu.org/docs/master/system/arm/virt.html",
+    "checked": "2026-10-22",
+    "support": [
+      "通用板级模型非真实特定硬件"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "qemu-tcg",
+    "title": "QEMU Translator Internals",
+    "url": "https://www.qemu.org/docs/master/devel/tcg.html",
+    "checked": "2026-10-22",
+    "support": [
+      "运行时动态翻译、TB 状态与缓存"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "qemu-ir",
+    "title": "TCG Intermediate Representation",
+    "url": "https://www.qemu.org/docs/master/devel/tcg-ops.html",
+    "checked": "2026-10-22",
+    "support": [
+      "中间表示与类型化操作"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "qemu-invocation",
+    "title": "QEMU Invocation",
+    "url": "https://www.qemu.org/docs/master/system/invocation.html",
+    "checked": "2026-10-22",
+    "support": [
+      "目标机器与加速器选择、帮助命令"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；示例命令未在读者目标环境执行"
+  },
+  {
+    "key": "n64recomp",
+    "title": "N64Recomp: How it Works",
+    "url": "https://github.com/N64Recomp/N64Recomp",
+    "checked": "2026-10-22",
+    "support": [
+      "静态转换到 C 与运行时分工、输入元数据和限制"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary project documentation",
+    "verification": "项目 README 正文已读取；未执行项目"
+  },
+  {
+    "key": "n64modernruntime",
+    "title": "N64 Modern Runtime",
+    "url": "https://github.com/N64Recomp/N64ModernRuntime",
+    "checked": "2026-10-22",
+    "support": [
+      "libultra 功能重实现、平台 I/O 回调与渲染器接入"
+    ],
+    "chapters": [
+      13
+    ],
+    "source_type": "primary project documentation",
+    "verification": "项目 README 正文已读取；与 HLE 的对应明确为作者方法归类"
+  }
+]
