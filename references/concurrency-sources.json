@@ -1,0 +1,200 @@
+{
+  "scope": "并发与同步专题",
+  "sources": [
+    {
+      "key": "cpp-races",
+      "title": "C++ working draft: Data races",
+      "url": "https://eel.is/c++draft/intro.races",
+      "checked": "2026-10-22",
+      "kind": "primary-standard-draft",
+      "supports": [
+        "冲突访问、数据竞争与未定义行为",
+        "同步操作和先行关系"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "pthread-mutex",
+      "title": "pthread_mutex_lock(3p)",
+      "url": "https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html",
+      "checked": "2026-10-22",
+      "kind": "primary-interface-documentation",
+      "supports": [
+        "互斥锁阻塞与所有权",
+        "不同锁类型的重入行为"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "cpp-atomic-operations",
+      "title": "C++ working draft: Operations on atomic types",
+      "url": "https://eel.is/c++draft/atomics.types.operations",
+      "checked": "2026-10-22",
+      "kind": "primary-standard-draft",
+      "supports": [
+        "原子读写和读改写接口",
+        "is_lock_free 的实现相关保证"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "cpp-atomic-order",
+      "title": "C++ working draft: Order and consistency",
+      "url": "https://eel.is/c++draft/atomics.order",
+      "checked": "2026-10-22",
+      "kind": "primary-standard-draft",
+      "supports": [
+        "原子性与排序的区别",
+        "release/acquire 发布关系",
+        "seq_cst 的顺序约束及适用条件"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "gcc-atomic",
+      "title": "GCC: Built-in Functions for Memory Model Aware Atomic Operations",
+      "url": "https://gcc.gnu.org/onlinedocs/gcc/_005f_005fatomic-Builtins.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "内存序对编译器与硬件约束的作用",
+        "非无锁操作的运行库调用"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "gcc-volatile",
+      "title": "GCC: When is a Volatile Object Accessed?",
+      "url": "https://gcc.gnu.org/onlinedocs/gcc/Volatiles.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "volatile 不为普通内存访问建立所需排序"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "kernel-volatile",
+      "title": "Why the volatile type class should not be used",
+      "url": "https://docs.kernel.org/process/volatile-considered-harmful.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "volatile 不替代原子或锁原语"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "lkmm",
+      "title": "Linux Kernel Memory Consistency Model (LKMM)",
+      "url": "https://docs.kernel.org/dev-tools/lkmm/index.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "内核有独立的内存模型文档体系"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "lkmm-recipes",
+      "title": "LKMM: Recipes",
+      "url": "https://docs.kernel.org/dev-tools/lkmm/docs/recipes.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "READ_ONCE、WRITE_ONCE与内核锁的不同作用",
+        "内核同步示例不能机械照搬为用户态接口"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "futex-api",
+      "title": "futex(2)",
+      "url": "https://man7.org/linux/man-pages/man2/futex.2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-interface-documentation",
+      "supports": [
+        "用户态锁状态与内核阻塞操作的连接",
+        "无竞争路径可在用户态执行"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "futex-wait",
+      "title": "FUTEX_WAIT(2const)",
+      "url": "https://man7.org/linux/man-pages/man2/FUTEX_WAIT.2const.html",
+      "checked": "2026-10-22",
+      "kind": "primary-interface-documentation",
+      "supports": [
+        "比较并开始阻塞的原子性",
+        "值变化时EAGAIN、防止丢失唤醒及虚假唤醒"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "futex-wake",
+      "title": "FUTEX_WAKE(2const)",
+      "url": "https://man7.org/linux/man-pages/man2/FUTEX_WAKE.2const.html",
+      "checked": "2026-10-22",
+      "kind": "primary-interface-documentation",
+      "supports": [
+        "至多唤醒指定数量等待者",
+        "不保证选择哪位等待者"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "pthread-condition",
+      "title": "pthread_cond_wait / pthread_cond_timedwait(3p)",
+      "url": "https://man7.org/linux/man-pages/man3/pthread_cond_wait.3p.html",
+      "checked": "2026-10-22",
+      "kind": "primary-interface-documentation",
+      "supports": [
+        "释放互斥锁并等待的原子协议",
+        "返回时重新持锁、循环检查谓词和虚假唤醒"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    },
+    {
+      "key": "false-sharing",
+      "title": "False Sharing",
+      "url": "https://docs.kernel.org/kernel-hacking/false-sharing.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "同缓存行不同字段访问时的一致性成本",
+        "有害伪共享需要至少一方写入",
+        "布局与实测决定是否需要缓解"
+      ],
+      "chapters": [
+        "21-concurrency"
+      ]
+    }
+  ]
+}

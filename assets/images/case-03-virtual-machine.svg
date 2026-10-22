@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1370" viewBox="0 0 800 1370" role="img" aria-labelledby="title desc">
+<title id="title">案例三：虚拟机的执行路径与 I/O 路径</title><desc id="desc">一个客户机中，CPU 执行与设备请求由不同机制协作。原创教学示意，非实际时序或性能测量。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#157d7b"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#cd713e"/></marker></defs>
+<rect width="800" height="1370" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif}</style>
+<text x="44" y="55" font-size="29" fill="#19364a" font-weight="700" text-anchor="start">案例三：虚拟机的执行路径与 I/O 路径</text>
+<text x="44" y="91" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="start">一个客户机中，CPU 执行与设备请求由不同机制协作</text>
+<path d="M44 116H756" stroke="#aebbbd"/>
+<rect x="60" y="145" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">① QEMU 建立机器模型</text>
+<text x="82" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">准备客户机内存、虚拟设备与 vCPU 执行上下文。</text>
+<text x="82" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">使用 KVM 时，客户机执行由内核接口配合硬件加速。</text>
+<path d="M400 290L400 340" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="340" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="377" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">② 客户机运行应用与内核</text>
+<text x="82" y="412" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">客户机的系统调用首先进入客户机内核。</text>
+<text x="82" y="444" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">不是每次客户机系统调用都会退出到 QEMU。</text>
+<path d="M235 485L235 545" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<path d="M565 485L565 545" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="545" width="325" height="180" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="582" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">vCPU 执行</text>
+<text x="82" y="617" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">KVM_RUN 进入运行</text>
+<text x="82" y="649" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">需要处理的退出事件</text>
+<text x="82" y="681" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">交给相应处理路径</text>
+<rect x="415" y="545" width="325" height="180" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="437" y="582" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">virtio 请求</text>
+<text x="437" y="617" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">客户机驱动组织请求</text>
+<text x="437" y="649" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">通过 virtqueue 协作</text>
+<text x="437" y="681" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">通知设备后端</text>
+<path d="M565 725L565 785" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="785" width="680" height="145" rx="18" fill="#f7e9df" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="822" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">③ 后端访问宿主资源</text>
+<text x="82" y="857" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">设备后端可能在 QEMU、内核 vhost 或其他进程中。</text>
+<text x="82" y="889" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">块设备与网络后端再连接相应宿主 I/O 路径。</text>
+<path d="M400 930L400 980" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="980" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="1017" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">④ 完成信息回到客户机</text>
+<text x="82" y="1052" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">后端更新队列状态；按设备与协商机制通知客户机。</text>
+<text x="82" y="1084" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">客户机驱动处理完成，应用随后获得结果。</text>
+<text x="60" y="1180" font-size="19" fill="#5a6c75" font-weight="400" text-anchor="start">边界：简化为常见 KVM＋virtio 组合，未画出所有退出原因。</text>
+<text x="60" y="1213" font-size="19" fill="#5a6c75" font-weight="400" text-anchor="start">virtqueue 不是“把所有数据复制一次”的统一规定。</text>
+<text x="44" y="1342" font-size="17" fill="#5a6c75" font-weight="400" text-anchor="start">原创机制示意 · 箭头表示关系或可能路径，并非完整执行轨迹</text>
+</svg>

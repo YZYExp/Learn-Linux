@@ -9,7 +9,7 @@ import shutil
 from urllib.parse import unquote, urlsplit
 
 import markdown
-from build_book import load, validate
+from build_book import load, validate, write_source_index
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'build/site'
@@ -18,6 +18,7 @@ PARTS = [
     ('02', '文件与持久化', '从一个文件名，走到缓存、磁盘与叠加视图。', 6, 9),
     ('03', '隔离与虚拟化', '看清容器、KVM、QEMU 各自放置的边界。', 10, 13),
     ('04', '生态与贯通', '连接网络、桌面、手机与跨系统的真实问题。', 14, 20),
+    ('05', '进阶专题', '同步契约、系统更新与硬件局部性。', 21, 23),
 ]
 DESCRIPTIONS = {
  '00':'从熟悉的工具出发，建立自底向上的阅读方法。',
@@ -41,6 +42,9 @@ DESCRIPTIONS = {
  '18':'同一内核之上，另一套运行时与应用平台。',
  '19':'相似的系统概念，不等于相同内核和接口。',
  '20':'在 Mac 上追踪一次 Linux 服务请求的跨层路径。',
+ '21':'原子、互斥、等待与可见性分别保证什么。',
+ '22':'从程序依赖走向包管理、系统更新与回滚边界。',
+ '23':'缓存、NUMA、DMA 与 IOMMU 怎样影响数据路径。',
 }
 
 class TextOnly(HTMLParser):
@@ -124,6 +128,8 @@ def navigation(book,base,current):
         output+=f'<div class="nav-part"><strong>{number} / {title}</strong><ol>'
         output+=''.join(link(c) for c in book['chapters'] if first<=int(c['id'])<=last)
         output+='</ol></div>'
+    if book.get('cases'):
+        output+='<div class="nav-part"><strong>贯通案例</strong><ol>'+''.join(link(c) for c in book['cases'])+'</ol></div>'
     output+='<div class="nav-part"><strong>附录与资料</strong><ol>'
     for c in book['appendices']:
         output+=f'<li><a href="{base}read/appendix-{Path(c["source"]).stem}/">{escape(c["title"])}</a></li>'
@@ -143,13 +149,15 @@ def homepage(book,stats,base,epub_available=False):
             minutes=max(1,round(len(re.findall(r'[\u4e00-\u9fff]',text))/400))
             rows+=f'<a class="chapter-row" href="{base}read/{c["slug"]}/"><span class="chapter-number">{c["id"]}</span><span class="chapter-summary"><h4>{escape(c["title"])}</h4><p>{DESCRIPTIONS[c["id"]]}</p></span><span class="chapter-meta">约 {minutes} 分钟 <span aria-hidden="true">↗</span></span></a>'
         groups+=f'<div class="part"><div class="part-heading"><span class="part-index">PART {number}</span><h3>{title}</h3><p>{description}</p></div><div class="chapter-list">{rows}</div></div>'
+    case_rows=''.join(f'<a class="chapter-row" href="{base}read/{c["slug"]}/"><span class="chapter-number">{c["id"]}</span><span class="chapter-summary"><h4>{escape(c["title"])}</h4><p>从场景、阶段与观察证据，把机制串起来。</p></span><span class="chapter-meta">阅读 ↗</span></a>' for c in book.get('cases',[]))
+    case_section=f'<section id="cases" class="section"><div class="section-heading"><p class="eyebrow">贯通案例</p><h2>把一次操作，追到它依赖的机制。</h2><p>容器服务、数据库事务、虚拟机与性能排查。案例是教学设定，不冒充实测报告。</p></div><div class="chapter-list">{case_rows}</div></section>' if case_rows else ''
     gallery=''
     for slug,title,caption in [('08-fuse','FUSE','同一个文件接口，跨过内核与用户态。'),('09-overlayfs','OverlayFS','目录层怎样形成一份合并视图。'),('12-kvm','KVM','执行控制与设备后端的协作边界。')]:
         gallery+=f'<figure class="diagram-card"><a href="{base}read/{slug}/"><img src="{base}assets/images/{slug}.svg" alt="{title}机制图" loading="lazy"></a><figcaption><strong>{title}</strong><p>{caption}</p></figcaption></figure>'
     return f'''<main id="main" class="shell">
 <section class="hero"><div class="hero-copy"><p class="eyebrow">一本有来源、能串起来的系统原理读本</p><h1 class="hero-title">Linux，<br>自底向上<span aria-hidden="true">。</span></h1><p class="hero-subtitle">沿着一个请求，看懂整个系统。</p><p class="hero-description">从硬件、进程和文件开始，走到容器、虚拟机与 Android。面向有技术背景的读者，解释机制如何工作，以及它们的边界在哪里。</p><div class="actions"><a class="button primary" href="{base}read/00-preface/">开始阅读 <span aria-hidden="true">→</span></a><a class="button secondary" href="{download_url}"{download_attribute}>{download_label}</a></div><div class="stats"><div class="stat"><strong>{stats['chapters']}</strong><span>正文章节</span></div><div class="stat"><strong>{stats['mechanism_diagrams']}</strong><span>机制图解</span></div><div class="stat"><strong>{stats['distinct_cited_urls']}</strong><span>资料来源</span></div></div></div><figure class="hero-art"><img src="{base}assets/images/cover.webp" alt="从芯片、内核到应用生态的分层城市，AI概念插画，非技术证据" fetchpriority="high"><figcaption>从硬件到生态 · 概念插画</figcaption></figure></section>
 <section class="section"><div class="section-heading"><p class="eyebrow">先把边界放回原位</p><h2>从“会用”，走向“理解为什么”。</h2><p>按层次建立地图，再把熟悉的特性接回它们依赖的机制。</p></div><div class="learning-map"><div class="map-step"><span>01</span><strong>执行</strong><small>谁在运行，谁在等待</small></div><div class="map-step"><span>02</span><strong>数据</strong><small>名字、缓存与持久化</small></div><div class="map-step"><span>03</span><strong>边界</strong><small>视图、资源与虚拟机器</small></div><div class="map-step"><span>04</span><strong>生态</strong><small>接口如何长成平台</small></div></div></section>
-<section id="chapters" class="section"><div class="section-heading"><p class="eyebrow">CONTENTS / 全书目录</p><h2>二十章，贯通一套系统。</h2><p>可以顺序读，也可以从熟悉的问题进入。预计阅读时长仅供安排节奏。</p></div>{groups}</section>
+<section id="chapters" class="section"><div class="section-heading"><p class="eyebrow">CONTENTS / 全书目录</p><h2>{stats['chapters']} 章，贯通一套系统。</h2><p>可以顺序读，也可以从熟悉的问题进入。预计阅读时长仅供安排节奏。</p></div>{groups}</section>{case_section}
 <section class="section"><div class="section-heading"><p class="eyebrow">把关系画出来</p><h2>看得见的机制，核查得到的解释。</h2><p>图解保留关键对象和边界；具体事实旁边，就有原始资料。</p></div><div class="gallery">{gallery}</div></section>
 <section class="section callout"><p class="eyebrow">阅读方式由你决定</p><h2>在网页里读，或把整本书带走。</h2><p>网页版与 EPUB 来自同一份分章主稿。资料与交叉审稿记录随书公开。</p><div class="actions"><a class="button primary" href="{base}read/00-preface/">从导读开始 →</a><a class="button secondary" href="{base}read/sources/">查看资料来源</a><a class="button secondary" href="https://github.com/YZYExp/Learn-Linux/archive/refs/heads/main.zip">下载源文件 ↗</a></div></section></main>'''
 
@@ -185,7 +193,8 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--base-path',default='/Learn-Linux/')
     parser.add_argument('--epub',type=Path,help='Optional validated EPUB to include as a direct download')
     args=parser.parse_args();base='/'+args.base_path.strip('/')+'/' if args.base_path.strip('/') else '/'
-    book=load();stats,_=validate(book)
+    book=load();stats,records=validate(book)
+    write_source_index(records)
     epub=args.epub.resolve() if args.epub else None
     if epub is not None:
         from build_book import verify_epub
@@ -198,21 +207,26 @@ def main():
         im.convert('RGB').resize((800,1200)).save(OUT/'assets/images/cover.webp',quality=86)
     for name in ['styles.css','app.js','favicon.svg']:shutil.copyfile(ROOT/'site'/name,OUT/'assets'/name)
     docs=[dict(c) for c in book['chapters']]
+    docs += [dict(c) for c in book.get('cases',[])]
     docs += [dict(c,slug='appendix-'+Path(c['source']).stem,id='附录') for c in book['appendices']]
+    reading_count=len(docs)
     docs += [dict(title=title,source=source,slug=slug,id='资料') for title,source,slug in [
       ('来源总索引','references/index.md','sources'),
       ('交叉审稿与修订记录','references/reviews/summary.md','review'),
       ('运行基础专题审稿','references/reviews/execution-v2.md','review-execution'),
       ('文件与 I/O 专题审稿','references/reviews/io-v2.md','review-io'),
-      ('虚拟化与平台专题审稿','references/reviews/vm-platform-v2.md','review-platform')]]
+      ('虚拟化与平台专题审稿','references/reviews/vm-platform-v2.md','review-platform'),
+      ('1.2 并发专题交叉审稿','references/reviews/expansion-concurrency-v1.2.md','review-expansion-concurrency'),
+      ('1.2 系统专题交叉审稿','references/reviews/expansion-systems-v1.2.md','review-expansion-systems'),
+      ('1.2 贯通案例交叉审稿','references/reviews/expansion-cases-v1.2.md','review-expansion-cases')]]
     routes={(ROOT/c['source']).resolve():'read/'+c['slug']+'/' for c in docs}
     search=[]
     for index,c in enumerate(docs):
         html,toc=render(ROOT/c['source'],routes,base);text=plain(html)
-        previous=docs[index-1] if index>0 and index<23 else None
-        following=docs[index+1] if index<22 else None
+        previous=docs[index-1] if index>0 and index<reading_count else None
+        following=docs[index+1] if index<reading_count-1 else None
         pagination=''
-        for label,node in [('上一章',previous),('下一章',following)]:
+        for label,node in [('上一篇',previous),('下一篇',following)]:
             if node:pagination+=f'<a href="{base}read/{node["slug"]}/"><small>{label}</small><strong>{escape(node["title"])}</strong></a>'
         body=f'<main id="main" class="reader-grid shell">'+navigation(book,base,c['slug'])+f'<div class="reading-pane"><div class="reading-meta"><nav class="breadcrumbs" aria-label="面包屑"><a href="{base}">首页</a><span> / </span><span>{escape(c["id"])}</span></nav><span>第 {book["edition"]} 版 · 资料核查 {book["date"]}</span></div><article class="prose">{html}</article><nav class="chapter-pagination" aria-label="章节翻页">{pagination}</nav></div><aside class="page-toc" aria-label="本页目录"><strong>本页目录</strong>{toc}</aside></main>'
         target=OUT/'read'/c['slug'];target.mkdir(parents=True,exist_ok=True)

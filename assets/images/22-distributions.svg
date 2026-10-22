@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1260" viewBox="0 0 800 1260" role="img" aria-labelledby="title desc">
+<title id="title">发行版：把软件组织成可维护的系统</title><desc id="desc">包文件、仓库元数据与应用数据各有边界。原创教学示意，非实际时序或性能测量。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#157d7b"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#cd713e"/></marker></defs>
+<rect width="800" height="1260" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif}</style>
+<text x="44" y="55" font-size="29" fill="#19364a" font-weight="700" text-anchor="start">发行版：把软件组织成可维护的系统</text>
+<text x="44" y="91" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="start">包文件、仓库元数据与应用数据各有边界</text>
+<path d="M44 116H756" stroke="#aebbbd"/>
+<rect x="60" y="145" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">① 仓库提供候选版本与元数据</text>
+<text x="82" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">包名、版本、依赖关系与来源信息。</text>
+<text x="82" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">验证可信元数据，再按其记录核查包内容。</text>
+<path d="M400 290L400 340" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="340" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="377" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">② 包管理器解析系统变化</text>
+<text x="82" y="412" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">结合已安装状态，选择安装、升级或移除方案。</text>
+<text x="82" y="444" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">依赖满足并不证明应用行为一定兼容。</text>
+<path d="M400 485L400 535" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="535" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="572" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">③ 执行安装事务与配置动作</text>
+<text x="82" y="607" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">部署文件，更新包数据库；可能运行维护脚本。</text>
+<text x="82" y="639" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">具体的原子性与恢复能力依实现而不同。</text>
+<path d="M235 680L235 740" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<path d="M565 680L565 740" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="740" width="325" height="180" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="777" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">系统软件</text>
+<text x="82" y="812" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">可追踪包与版本。</text>
+<text x="82" y="844" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">部分方案支持</text>
+<text x="82" y="876" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">切换系统代际。</text>
+<rect x="415" y="740" width="325" height="180" rx="18" fill="#f7e9df" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="437" y="777" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">应用数据</text>
+<text x="437" y="812" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">数据库、用户文件。</text>
+<text x="437" y="844" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">运行中的写入与迁移</text>
+<text x="437" y="876" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">通常另需备份策略。</text>
+<rect x="60" y="966" width="680" height="170" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="1003" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">读图边界</text>
+<text x="82" y="1038" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">回滚软件版本，不自动撤销数据库迁移或用户写入。</text>
+<text x="82" y="1070" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">Nix 的代际切换与传统原地安装不是同一种机制。</text>
+<text x="82" y="1102" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">签名与哈希验证说明来源／完整性，不保证没有缺陷。</text>
+<text x="44" y="1232" font-size="17" fill="#5a6c75" font-weight="400" text-anchor="start">原创机制示意 · 箭头表示关系或可能路径，并非完整执行轨迹</text>
+</svg>

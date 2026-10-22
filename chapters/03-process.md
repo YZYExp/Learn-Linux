@@ -69,3 +69,6 @@ ls /proc/$$/task
 - [pthreads](https://man7.org/linux/man-pages/man7/pthreads.7.html)、[clone](https://man7.org/linux/man-pages/man2/clone.2.html)、[fork](https://man7.org/linux/man-pages/man2/fork.2.html)、[execve](https://man7.org/linux/man-pages/man2/execve.2.html)。
 - [wait](https://man7.org/linux/man-pages/man2/wait.2.html)、[futex](https://man7.org/linux/man-pages/man7/futex.7.html)、[getrusage](https://man7.org/linux/man-pages/man2/getrusage.2.html)。
 - [CFS](https://docs.kernel.org/scheduler/sched-design-CFS.html)、[EEVDF](https://docs.kernel.org/scheduler/sched-eevdf.html)、[sched](https://man7.org/linux/man-pages/man7/sched.7.html)、[ps](https://man7.org/linux/man-pages/man1/ps.1.html)。
+
+
+进一步阅读：[第 21 章　并发与同步](21-concurrency.md)，补充本章机制在共享数据、软件集成或资源放置中的延伸。

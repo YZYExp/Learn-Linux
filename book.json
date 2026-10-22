@@ -2,7 +2,7 @@
   "title": "Linux，自底向上",
   "subtitle": "从硬件与进程，到文件系统、容器、虚拟化与系统生态",
   "language": "zh-CN",
-  "edition": "1.1",
+  "edition": "1.2",
   "date": "2026-10-22",
   "description": "面向已有软件背景读者的图解原理读本，以机制、边界与可核查来源组织知识。",
   "cover": "assets/images/cover.png",
@@ -153,6 +153,27 @@
       "order": 20,
       "source": "chapters/20-capstone.md",
       "slug": "20-capstone"
+    },
+    {
+      "id": "21",
+      "title": "并发与同步：从共享数据到等待协议",
+      "order": 21,
+      "source": "chapters/21-concurrency.md",
+      "slug": "21-concurrency"
+    },
+    {
+      "id": "22",
+      "title": "软件包与发行版：系统如何组成与更新",
+      "order": 22,
+      "source": "chapters/22-distributions.md",
+      "slug": "22-distributions"
+    },
+    {
+      "id": "23",
+      "title": "硬件与性能拓扑：数据离执行者有多远",
+      "order": 23,
+      "source": "chapters/23-topology.md",
+      "slug": "23-topology"
     }
   ],
   "appendices": [
@@ -172,5 +193,31 @@
     "output_directory": "build/site",
     "base_path": "/Learn-Linux/",
     "hosting": "GitHub Pages"
-  }
+  },
+  "cases": [
+    {
+      "id": "C1",
+      "title": "案例一　从镜像到一个可访问的容器服务",
+      "source": "cases/01-container.md",
+      "slug": "case-01-container"
+    },
+    {
+      "id": "C2",
+      "title": "案例二　一次数据库事务怎样获得持久性",
+      "source": "cases/02-transaction.md",
+      "slug": "case-02-transaction"
+    },
+    {
+      "id": "C3",
+      "title": "案例三　一台虚拟机怎样执行与访问磁盘",
+      "source": "cases/03-virtual-machine.md",
+      "slug": "case-03-virtual-machine"
+    },
+    {
+      "id": "C4",
+      "title": "案例四　把一次服务变慢拆成可检验的假设",
+      "source": "cases/04-slow-service.md",
+      "slug": "case-04-slow-service"
+    }
+  ]
 }

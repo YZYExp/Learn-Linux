@@ -1,0 +1,273 @@
+[
+  {
+    "key": "case-oci-lifecycle",
+    "title": "OCI Runtime and Lifecycle",
+    "url": "https://github.com/opencontainers/runtime-spec/blob/main/runtime.md",
+    "checked": "2026-10-22",
+    "support": [
+      "创建、启动与容器状态的区别"
+    ],
+    "chapters": [],
+    "cases": [
+      1
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-overlay",
+    "title": "Overlay Filesystem",
+    "url": "https://docs.kernel.org/filesystems/overlayfs.html",
+    "checked": "2026-10-22",
+    "support": [
+      "上层、底层与copy-up"
+    ],
+    "chapters": [],
+    "cases": [
+      1
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-oci-linux",
+    "title": "OCI Linux Container Configuration",
+    "url": "https://github.com/opencontainers/runtime-spec/blob/main/config-linux.md",
+    "checked": "2026-10-22",
+    "support": [
+      "命名空间、资源与安全配置字段"
+    ],
+    "chapters": [],
+    "cases": [
+      1
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-cgroup",
+    "title": "Control Group v2",
+    "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "资源层级与CPU统计、节流计数"
+    ],
+    "chapters": [],
+    "cases": [
+      1,
+      4
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-netns",
+    "title": "network_namespaces(7)",
+    "url": "https://man7.org/linux/man-pages/man7/network_namespaces.7.html",
+    "checked": "2026-10-22",
+    "support": [
+      "隔离的网络资源与veth连接"
+    ],
+    "chapters": [],
+    "cases": [
+      1
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-bridge",
+    "title": "Docker Bridge network driver",
+    "url": "https://docs.docker.com/engine/network/drivers/bridge/",
+    "checked": "2026-10-22",
+    "support": [
+      "桥接、地址与端口发布的不同职责"
+    ],
+    "chapters": [],
+    "cases": [
+      1
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-volume",
+    "title": "Docker Volumes",
+    "url": "https://docs.docker.com/engine/storage/volumes/",
+    "checked": "2026-10-22",
+    "support": [
+      "卷的独立生命周期与挂载遮蔽"
+    ],
+    "chapters": [],
+    "cases": [
+      1
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-pg-wal-settings",
+    "title": "PostgreSQL 18: Write Ahead Log settings",
+    "url": "https://www.postgresql.org/docs/current/runtime-config-wal.html",
+    "checked": "2026-10-22",
+    "support": [
+      "fsync、synchronous_commit条件、检查点与写回"
+    ],
+    "chapters": [],
+    "cases": [
+      2
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-pg-wal",
+    "title": "PostgreSQL 18: Write-Ahead Logging",
+    "url": "https://www.postgresql.org/docs/current/wal-intro.html",
+    "checked": "2026-10-22",
+    "support": [
+      "先写日志、REDO、数据页延后写出、成组提交"
+    ],
+    "chapters": [],
+    "cases": [
+      2
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-pg-reliability",
+    "title": "PostgreSQL 18: Reliability",
+    "url": "https://www.postgresql.org/docs/current/wal-reliability.html",
+    "checked": "2026-10-22",
+    "support": [
+      "操作系统及设备缓存、持久性对底层履约的依赖"
+    ],
+    "chapters": [],
+    "cases": [
+      2
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-fsync",
+    "title": "fsync(2)",
+    "url": "https://man7.org/linux/man-pages/man2/fsync.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "同步完成与错误、fdatasync边界"
+    ],
+    "chapters": [],
+    "cases": [
+      2
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-qemu-intro",
+    "title": "QEMU System Emulation Introduction",
+    "url": "https://www.qemu.org/docs/master/system/introduction.html",
+    "checked": "2026-10-22",
+    "support": [
+      "机器模型、加速器、设备与后端"
+    ],
+    "chapters": [],
+    "cases": [
+      3
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-kvm-api",
+    "title": "KVM API Documentation",
+    "url": "https://docs.kernel.org/virt/kvm/api.html",
+    "checked": "2026-10-22",
+    "support": [
+      "VM/vCPU创建、内存配置、KVM_RUN及用户态退出"
+    ],
+    "chapters": [],
+    "cases": [
+      3
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-virtio",
+    "title": "Virtual I/O Device (VIRTIO) Version 1.2",
+    "url": "https://docs.oasis-open.org/virtio/virtio/v1.2/virtio-v1.2.html",
+    "checked": "2026-10-22",
+    "support": [
+      "设备、驱动与virtqueue的请求完成模型"
+    ],
+    "chapters": [],
+    "cases": [
+      3
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-qemu-block",
+    "title": "QEMU block drivers reference",
+    "url": "https://www.qemu.org/docs/master/system/qemu-block-drivers.html",
+    "checked": "2026-10-22",
+    "support": [
+      "raw、qcow2镜像格式与存储后端"
+    ],
+    "chapters": [],
+    "cases": [
+      3
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-loadavg",
+    "title": "proc_loadavg(5)",
+    "url": "https://man7.org/linux/man-pages/man5/proc_loadavg.5.html",
+    "checked": "2026-10-22",
+    "support": [
+      "负载平均与可运行或等待的统计口径"
+    ],
+    "chapters": [],
+    "cases": [
+      4
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-psi",
+    "title": "PSI — Pressure Stall Information",
+    "url": "https://docs.kernel.org/accounting/psi.html",
+    "checked": "2026-10-22",
+    "support": [
+      "资源停顿、some/full、窗口与系统级CPU full边界"
+    ],
+    "chapters": [],
+    "cases": [
+      4
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  },
+  {
+    "key": "case-pg-monitoring",
+    "title": "PostgreSQL 18: The Cumulative Statistics System",
+    "url": "https://www.postgresql.org/docs/current/monitoring-stats.html",
+    "checked": "2026-10-22",
+    "support": [
+      "活动、等待事件与累计统计刷新口径"
+    ],
+    "chapters": [],
+    "cases": [
+      4
+    ],
+    "source_type": "primary documentation",
+    "verification": "网页正文已读取；案例为教学设定；未执行部署、数据库或虚拟机实验，未提供实测数据"
+  }
+]

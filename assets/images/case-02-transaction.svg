@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1370" viewBox="0 0 800 1370" role="img" aria-labelledby="title desc">
+<title id="title">案例二：事务确认与数据页回写</title><desc id="desc">以 PostgreSQL 的 WAL 思路区分两条持久化路径。原创教学示意，非实际时序或性能测量。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#157d7b"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#cd713e"/></marker></defs>
+<rect width="800" height="1370" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif}</style>
+<text x="44" y="55" font-size="29" fill="#19364a" font-weight="700" text-anchor="start">案例二：事务确认与数据页回写</text>
+<text x="44" y="91" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="start">以 PostgreSQL 的 WAL 思路区分两条持久化路径</text>
+<path d="M44 116H756" stroke="#aebbbd"/>
+<rect x="60" y="145" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">① 事务改变数据库状态</text>
+<text x="82" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">内存中的数据页变脏，并产生 WAL 记录。</text>
+<text x="82" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">WAL 先行原则约束相关记录与数据页的落盘顺序。</text>
+<path d="M400 290L400 340" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="340" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="377" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">② 提交等待相关 WAL 达到要求的位置</text>
+<text x="82" y="412" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">默认同步提交需要等待本地 WAL 刷入持久存储；</text>
+<text x="82" y="444" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">同步复制配置还可能加入远端等待。</text>
+<path d="M400 485L400 535" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="535" width="680" height="145" rx="18" fill="#f7e9df" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="572" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">③ 系统调用经过 OS 与存储栈</text>
+<text x="82" y="607" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">普通写入成功不等于掉电后可恢复。</text>
+<text x="82" y="639" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">同步要求仍依赖设备、缓存与存储栈正确兑现。</text>
+<path d="M400 680L400 730" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="730" width="680" height="115" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="767" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">④ 达到提交配置要求，向客户端确认</text>
+<text x="82" y="802" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">不要求每个被修改的数据页都已写入数据文件。</text>
+<path d="M400 845L400 895" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<text x="416" y="876.0" font-size="19" fill="#157d7b" font-weight="400" text-anchor="start">另一条持续进行的工作</text>
+<rect x="60" y="895" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="932" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">⑤ 后台写页与检查点推进</text>
+<text x="82" y="967" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">在 WAL 顺序约束下写出脏页，并推进恢复起点。</text>
+<text x="82" y="999" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">崩溃恢复可以重放所需 WAL。</text>
+<rect x="60" y="1088" width="680" height="170" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="1125" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">读图边界</text>
+<text x="82" y="1160" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">图中编号帮助理解依赖，不代表后台工作等到确认后才开始。</text>
+<text x="82" y="1192" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">关闭同步、异步提交或更改复制配置，会改变确认保证。</text>
+<text x="82" y="1224" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">未提供设备故障实验，也不覆盖所有数据库实现。</text>
+<text x="44" y="1342" font-size="17" fill="#5a6c75" font-weight="400" text-anchor="start">原创机制示意 · 箭头表示关系或可能路径，并非完整执行轨迹</text>
+</svg>

@@ -17,7 +17,7 @@ def load():
     return json.loads((ROOT / 'book.json').read_text())
 
 def source_files(book):
-    return [ROOT / x['source'] for x in book['chapters'] + book['appendices']]
+    return [ROOT / x['source'] for x in book['chapters'] + book.get('cases',[]) + book['appendices']]
 
 def verify_png(source):
     from PIL import Image
@@ -59,6 +59,7 @@ def validate(book):
                      else '# 第 '+str(int(x['id']))+' 章　'+x['title'])
         for x in book['chapters']
     }
+    expected_headers.update({x['source']:'# '+x['title'] for x in book.get('cases',[])})
     for chapter in book['chapters']:
         if chapter['id'] in ids or chapter['slug'] in slugs:
             errors.append('duplicate chapter id or slug')
@@ -83,7 +84,7 @@ def validate(book):
             elif not target.startswith('#'):
                 if not (path.parent / target.split('#')[0]).resolve().exists():
                     errors.append(f'broken local link: {path.name}: {target}')
-        if path.parent.name == 'chapters' and not path.name.startswith('00-'):
+        if path.parent.name in ('chapters','cases') and not path.name.startswith('00-'):
             if '![' not in text or 'https://' not in text:
                 errors.append(f'missing illustration or source: {path.name}')
     for path in (ROOT/'assets/images').glob('*.svg'):
@@ -103,12 +104,21 @@ def validate(book):
         errors.append('root commit must contain only empty README.md')
     if errors:
         raise SystemExit('\n'.join(errors))
-    result = {'chapters':len(book['chapters'])-1,'preface':1,'appendices':len(book['appendices']),
+    result = {'chapters':len(book['chapters'])-1,'preface':1,'cases':len(book.get('cases',[])),'appendices':len(book['appendices']),
       'han_characters':han,'mechanism_diagrams':len(list((ROOT/'assets/images').glob('*.svg'))),
       'distinct_cited_urls':len({u.split('#')[0] for u in links}),'registered_sources':len(registered),
       'local_links':'pass','fences':'pass','chapter_titles':'pass',
       'root_commit':root_commit,'root_commit_empty_readme':'pass'}
     return result, records
+
+def write_source_index(records):
+    merged = {}
+    for record in records:
+        merged.setdefault(record['url'],record)
+    sources = '# 来源总索引\n\n各段证据见正文就近链接；这里按 URL 去重，支持范围详见 JSON 登记。\n\n'
+    for n,record in enumerate(sorted(merged.values(),key=lambda r:r['url']),1):
+        sources += f"{n}. [{record['title']}]({record['url']})\n"
+    (ROOT/'references/index.md').write_text(sources)
 
 def main():
     parser = argparse.ArgumentParser()
@@ -119,18 +129,12 @@ def main():
     if args.check_only:
         return
     BUILD.mkdir(exist_ok=True)
-    toc = '\n'.join(f"- {x['id']}　{x['title']}" for x in book['chapters'])
+    toc = '\n'.join('- '+x['title'] for x in book['chapters']+book.get('cases',[])+book['appendices'])
     content = f"# {book['title']}\n\n{book['subtitle']}\n\n版本 {book['edition']} · {book['date']}\n\n![封面概念插画，AI 生成，非机制图](../{book['cover']})\n\n# 总目录\n\n{toc}\n\n"
     for path in source_files(book):
         content += path.read_text().strip()+'\n\n'
     (BUILD/'Linux-From-the-Ground-Up.md').write_text(content)
-    merged = {}
-    for record in records:
-        merged.setdefault(record['url'],record)
-    sources = '# 来源总索引\n\n各段证据见正文就近链接；这里按 URL 去重，支持范围详见 JSON 登记。\n\n'
-    for n,record in enumerate(sorted(merged.values(),key=lambda r:r['url']),1):
-        sources += f"{n}. [{record['title']}]({record['url']})\n"
-    (ROOT/'references/index.md').write_text(sources)
+    write_source_index(records)
     (BUILD/'validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     pandoc = shutil.which('pandoc'); inkscape = shutil.which('inkscape')
     if not pandoc or not inkscape:

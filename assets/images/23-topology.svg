@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1320" viewBox="0 0 800 1320" role="img" aria-labelledby="title desc">
+<title id="title">硬件拓扑：同一地址空间，不同访问路径</title><desc id="desc">NUMA 局部性与设备 DMA 是两组相关但不同的问题。原创教学示意，非实际时序或性能测量。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#157d7b"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#cd713e"/></marker></defs>
+<rect width="800" height="1320" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif}</style>
+<text x="44" y="55" font-size="29" fill="#19364a" font-weight="700" text-anchor="start">硬件拓扑：同一地址空间，不同访问路径</text>
+<text x="44" y="91" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="start">NUMA 局部性与设备 DMA 是两组相关但不同的问题</text>
+<path d="M44 116H756" stroke="#aebbbd"/>
+<rect x="60" y="145" width="325" height="155" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">NUMA 节点 A</text>
+<text x="82" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">CPU／缓存</text>
+<text x="82" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">本地内存</text>
+<rect x="415" y="145" width="325" height="155" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="437" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">NUMA 节点 B</text>
+<text x="437" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">CPU／缓存</text>
+<text x="437" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">本地内存</text>
+<path d="M385 224H413" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<text x="400" y="337" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="middle">节点间互连：访问远端内存仍有路径与代价</text>
+<rect x="60" y="383" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="420" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">布局问题：放置线程，也要考虑页在哪里</text>
+<text x="82" y="455" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">页的实际放置受内存策略、分配时机等影响。</text>
+<text x="82" y="487" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">把线程绑到某个 CPU，不会自动迁移所有数据。</text>
+<path d="M60 548H740" stroke="#aebbbd" stroke-dasharray="6 6"/>
+<rect x="60" y="578" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="615" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">DMA 路径 1：设备发起请求</text>
+<text x="82" y="650" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">驱动使用 DMA API 获得设备可用的地址。</text>
+<text x="82" y="682" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">该地址不能直接当作 CPU 虚拟地址。</text>
+<path d="M400 723L400 773" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<text x="416" y="754.0" font-size="19" fill="#157d7b" font-weight="400" text-anchor="start">若该平台与设备启用地址翻译</text>
+<rect x="60" y="773" width="680" height="145" rx="18" fill="#f7e9df" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="810" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">DMA 路径 2：IOMMU 翻译与访问控制</text>
+<text x="82" y="845" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">把设备侧地址映射到允许访问的内存范围。</text>
+<text x="82" y="877" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">映射本身不替代同步、所有权和生命周期管理。</text>
+<path d="M400 918L400 968" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="968" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="1005" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">DMA 路径 3：访问内存，按协议接手</text>
+<text x="82" y="1040" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">缓存是否一致、是否要显式同步，依平台与映射而定。</text>
+<text x="82" y="1072" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">设备所在节点也会影响访问的局部性。</text>
+<text x="60" y="1170" font-size="19" fill="#5a6c75" font-weight="400" text-anchor="start">边界：并非每台机器都有多个 NUMA 节点或启用 IOMMU。</text>
+<text x="60" y="1203" font-size="19" fill="#5a6c75" font-weight="400" text-anchor="start">示意未画出 PCIe、所有缓存层及总线实际连接。</text>
+<text x="44" y="1292" font-size="17" fill="#5a6c75" font-weight="400" text-anchor="start">原创机制示意 · 箭头表示关系或可能路径，并非完整执行轨迹</text>
+</svg>

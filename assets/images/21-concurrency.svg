@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1370" viewBox="0 0 800 1370" role="img" aria-labelledby="title desc">
+<title id="title">并发：保护数据，也要组织等待</title><desc id="desc">以一个使用 futex 的互斥实现为教学模型。原创教学示意，非实际时序或性能测量。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#157d7b"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#cd713e"/></marker></defs>
+<rect width="800" height="1370" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif}</style>
+<text x="44" y="55" font-size="29" fill="#19364a" font-weight="700" text-anchor="start">并发：保护数据，也要组织等待</text>
+<text x="44" y="91" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="start">以一个使用 futex 的互斥实现为教学模型</text>
+<path d="M44 116H756" stroke="#aebbbd"/>
+<rect x="60" y="145" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">共享队列：锁保护的是不变量</text>
+<text x="82" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">例：长度、头尾指针与节点关系要一起保持正确。</text>
+<text x="82" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">一次原子更新，不等于整个复合操作受保护。</text>
+<path d="M400 290L400 340" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="340" width="680" height="115" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="377" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">① 用户态尝试获取锁</text>
+<text x="82" y="412" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">原子操作参与竞争；无争用路径可留在用户态。</text>
+<text x="80" y="493" font-size="21" fill="#157d7b" font-weight="700" text-anchor="start">成功 → 进入临界区</text>
+<text x="430" y="493" font-size="21" fill="#cd713e" font-weight="700" text-anchor="start">竞争失败 ↓</text>
+<path d="M585 505L585 544" fill="none" stroke="#cd713e" stroke-width="2.6" marker-end="url(#orange)"/>
+<rect x="60" y="544" width="680" height="145" rx="18" fill="#f7e9df" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="581" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">② FUTEX_WAIT：比较，再决定是否等待</text>
+<text x="82" y="616" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">内核检查 futex 字是否仍等于预期值；</text>
+<text x="82" y="648" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">值已变化可立即返回，并非一定进入睡眠。</text>
+<path d="M400 689L400 738" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<text x="416" y="719.5" font-size="19" fill="#157d7b" font-weight="400" text-anchor="start">可能阻塞</text>
+<rect x="60" y="738" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="775" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">③ 持有者更新状态，按协议唤醒</text>
+<text x="82" y="810" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">FUTEX_WAKE 使等待者有机会重新运行；</text>
+<text x="82" y="842" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">唤醒不等于把锁授予某个等待者。</text>
+<path d="M400 883L400 932" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="932" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="969" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">④ 再检查状态，再参与竞争</text>
+<text x="82" y="1004" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">等待返回后仍须遵守锁／条件的完整协议。</text>
+<text x="82" y="1036" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">futex 提供等待原语，锁语义由实现组织。</text>
+<path d="M60 1000H28V398H58" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)" stroke-dasharray="7 6"/>
+<rect x="60" y="1115" width="680" height="138" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="1152" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">读图边界</text>
+<text x="82" y="1187" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">不展示具体库的所有状态、内存序或公平性策略。</text>
+<text x="82" y="1219" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">CPU 缓存一致性不能替代语言层的同步规则。</text>
+<text x="44" y="1342" font-size="17" fill="#5a6c75" font-weight="400" text-anchor="start">原创机制示意 · 箭头表示关系或可能路径，并非完整执行轨迹</text>
+</svg>

@@ -1,0 +1,145 @@
+[
+  {
+    "key": "dist-1",
+    "title": "Debian Policy: Declaring relationships between packages",
+    "url": "https://www.debian.org/doc/debian-policy/ch-relationships.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-2",
+    "title": "Debian apt-get(8), bookworm",
+    "url": "https://manpages.debian.org/bookworm/apt/apt-get.8.en.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-3",
+    "title": "Debian dpkg-query(1), bookworm",
+    "url": "https://manpages.debian.org/bookworm/dpkg/dpkg-query.1.en.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-4",
+    "title": "Debian Policy: Package maintainer scripts and installation procedure",
+    "url": "https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-5",
+    "title": "Debian apt-secure(8), bookworm",
+    "url": "https://manpages.debian.org/bookworm/apt/apt-secure.8.en.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-6",
+    "title": "Debian security FAQ",
+    "url": "https://www.debian.org/security/faq",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-7",
+    "title": "Nix 2.34 profiles",
+    "url": "https://nix.dev/manual/nix/2.34/package-management/profiles.html",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-8",
+    "title": "Nix 2.34 store derivation",
+    "url": "https://nix.dev/manual/nix/2.34/store/derivation/",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-9",
+    "title": "OSTree Overview",
+    "url": "https://ostreedev.github.io/ostree/introduction/",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-10",
+    "title": "OSTree Atomic Upgrades",
+    "url": "https://ostreedev.github.io/ostree/atomic-upgrades/",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  },
+  {
+    "key": "dist-11",
+    "title": "OSTree and /var handling",
+    "url": "https://ostreedev.github.io/ostree/var/",
+    "checked": "2026-10-22",
+    "chapters": [
+      22
+    ],
+    "support": [
+      "正文对应段落所述包管理、构建或系统部署机制；具体支持范围以相邻引用为准"
+    ],
+    "verification": "已通过网页工具读取原始资料；未执行升级或回滚实验"
+  }
+]

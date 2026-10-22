@@ -2,20 +2,23 @@
 
 从硬件与进程，到文件系统、容器、虚拟化与系统生态。面向有软件背景、希望真正理解原理而不过度陷入实现细节的读者。
 
-第 1.1 版（独立交叉审稿修订） · 资料核查基准日 2026-10-22。
+第 1.2 版（进阶专题与贯通案例扩写） · 资料核查基准日 2026-10-22。
 
-本版包含导读、20 章正文、2 篇附录、20 幅原创机制图与 1 幅 AI 封面概念插画；正文及附录约 4.6 万汉字，148 个去重来源。关键事实在相邻位置链接原始资料，社区研究、教学模型与未实测的推演明确区分。
+本版包含导读、23 章正文、4 篇贯通案例、2 篇附录、27 幅原创机制图与 1 幅 AI 封面概念插画；正文、案例及附录约 6 万汉字，187 个去重来源。关键事实在相邻位置链接原始资料，社区研究、教学模型与未实测的推演明确区分。
 
 ## 阅读
 
 阅读顺序由 [book.json](book.json) 管理。已打包版本可直接打开 `build/Linux-From-the-Ground-Up.epub`；也可在支持相对图片的 Markdown 阅读器中打开合订稿 `build/Linux-From-the-Ground-Up.md`。
 
-分章从 [导读](chapters/00-preface.md) 开始。四个部分依次是：
+分章从 [导读](chapters/00-preface.md) 开始。五个部分依次是：
 
 1. 01–05：计算机、启动、进程、内存与二进制运行。
 2. 06–09：VFS、存储、FUSE 与 OverlayFS。
 3. 10–13：隔离、容器、KVM、QEMU 与跨架构。
 4. 14–20：网络、eBPF、异步 I/O、桌面、诊断、Android、macOS、Switch 与综合案例。
+5. 21–23：并发与同步、软件包与发行版、硬件与性能拓扑。
+
+另外提供独立的[容器服务](cases/01-container.md)、[数据库事务](cases/02-transaction.md)、[虚拟机执行与 I/O](cases/03-virtual-machine.md)、[服务变慢排查](cases/04-slow-service.md)四篇贯通案例。原有章号与网址保持稳定。
 
 来源见正文就近链接、各章末的边界说明，以及 [来源索引](references/index.md)。其他学习路线见 [附录 A](appendices/reading-and-glossary.md)。
 
@@ -26,10 +29,11 @@
 ```sh
 python3 scripts/build_book.py --check-only
 python3 scripts/draw_diagrams.py
+python3 scripts/draw_expansion_diagrams.py
 python3 scripts/build_book.py
 ```
 
-第一条检查章节清单、标题一致性、相对资源、引用登记、代码围栏、SVG XML 及 Git 初始提交。第二条重新绘制精确机制图。第三条生成合订 Markdown、PNG 和 EPUB，并对每幅 PNG 及 EPUB 内嵌图片完整解码，产物放在 `build/`。不要求联网生成正文或插图，不重跑 AI 封面。
+第一条检查章节清单、标题一致性、相对资源、引用登记、代码围栏、SVG XML 及 Git 初始提交。中间两条重新绘制原版及扩写机制图。最后一条生成合订 Markdown、PNG 和 EPUB，并对每幅 PNG 及 EPUB 内嵌图片完整解码，产物放在 `build/`。不要求联网生成正文或插图，不重跑 AI 封面。
 
 `chapters/` 是分章主稿，`appendices/` 放附录，`assets/images/` 是图片源，`references/` 是来源与核查记录。在线阅读站源码位于 `site/`，由 `scripts/build_site.py` 直接读取同一份章节清单与主稿，不另存一套正文。
 
@@ -43,7 +47,7 @@ git clone history.git.bundle linux-book-with-history
 
 远端仓库为 `https://github.com/YZYExp/Learn-Linux.git`。具体检查与未覆盖范围见 [核查记录](references/validation.md)。
 
-第 1.1 版的独立审稿意见、证据和处理结果见 [交叉审稿记录](references/reviews/summary.md)。
+各版的独立审稿意见、证据和处理结果见 [交叉审稿记录](references/reviews/summary.md)。
 
 
 ## GitHub Pages
@@ -60,7 +64,7 @@ python3 scripts/build_site.py --base-path /Learn-Linux/
 网页发布与整书导出独立运行：
 
 - `.github/workflows/pages.yml`：推送 main 时发布页面，拉取请求做构建检查。只安装 Markdown 和 Pillow，不运行 apt，也不安装 Pandoc、Inkscape 或字体。保留章节、引用、SVG、根提交及网页本地链接检查。
-- `.github/workflows/build-book.yml`：书稿、图源或导出工具变化时独立构建 EPUB，也可手动运行。此流程才安装 Pandoc、Inkscape、Noto CJK 字体，并完整解码检查 21 幅内嵌图片。成功后在该次运行的 Artifacts 中下载 `linux-book` 压缩包；网站的“EPUB 构建与下载”链接指向此流程。整书导出失败不会阻塞网页发布。
+- `.github/workflows/build-book.yml`：书稿、图源或导出工具变化时独立构建 EPUB，也可手动运行。此流程才安装 Pandoc、Inkscape、Noto CJK 字体，并完整解码检查全部 28 幅内嵌图片（含封面）。成功后在该次运行的 Artifacts 中下载 `linux-book` 压缩包；网站的“EPUB 构建与下载”链接指向此流程。整书导出失败不会阻塞网页发布。
 
 本地如需在网站中附带已构建的 EPUB，可显式传入文件，构建器会先校验再复制；未传入时不依赖本地残留产物：
 

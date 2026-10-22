@@ -77,3 +77,6 @@ readelf --version-info /bin/ls
 
 - [man-pages：ELF](https://man7.org/linux/man-pages/man5/elf.5.html)、[ld.so](https://man7.org/linux/man-pages/man8/ld.so.8.html)、[syscall](https://man7.org/linux/man-pages/man2/syscall.2.html)、[vDSO](https://man7.org/linux/man-pages/man7/vdso.7.html)、[execve](https://man7.org/linux/man-pages/man2/execve.2.html)。
 - [Linux 内核接口稳定性说明](https://docs.kernel.org/process/stable-api-nonsense.html)、[musl 功能差异说明](https://wiki.musl-libc.org/functional-differences-from-glibc.html)、[GNU readelf](https://sourceware.org/binutils/docs/binutils/readelf.html)、[QEMU 用户态仿真](https://www.qemu.org/docs/master/user/main.html)。
+
+
+进一步阅读：[第 22 章　软件包与发行版](22-distributions.md)，补充本章机制在共享数据、软件集成或资源放置中的延伸。

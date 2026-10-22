@@ -1,0 +1,158 @@
+{
+  "scope": "扩展专题：硬件与性能拓扑",
+  "sources": [
+    {
+      "key": "numa-overview",
+      "title": "numa(7)",
+      "url": "https://man7.org/linux/man-pages/man7/numa.7.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "NUMA访问与相对位置",
+        "numa_maps有效策略、节点页分布及其含义"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "lscpu-topology",
+      "title": "lscpu(1)",
+      "url": "https://man7.org/linux/man-pages/man1/lscpu.1.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "CPU拓扑和缓存信息",
+        "虚拟机显示客户机配置与字段平台差异"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "memory-barrier-topology",
+      "title": "Linux kernel memory barriers",
+      "url": "https://docs.kernel.org/core-api/wrappers/memory-barriers.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "缓存一致性与访问顺序区分",
+        "屏障不应统一理解为刷新全部缓存"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "cpp-data-races",
+      "title": "C++ working draft: Data races",
+      "url": "https://eel.is/c++draft/intro.races",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "语言数据竞争规则与同步关系",
+        "不能由硬件缓存一致性替代语言同步"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "false-sharing-topology",
+      "title": "False Sharing",
+      "url": "https://docs.kernel.org/kernel-hacking/false-sharing.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "缓存行上的伪共享",
+        "写入与布局调整的成本"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "numa-policy-topology",
+      "title": "NUMA Memory Policy",
+      "url": "https://docs.kernel.org/admin-guide/mm/numa_memory_policy.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "本地分配、策略作用域与cpuset约束",
+        "任务策略不自动迁移已有页及first-touch边界"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "cpuset-topology",
+      "title": "Control Group v2",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "cpuset的CPU与内存节点范围",
+        "配置值与有效值"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "dma-topology",
+      "title": "Dynamic DMA mapping Guide",
+      "url": "https://docs.kernel.org/core-api/dma-api-howto.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "CPU虚拟、物理、DMA地址差异",
+        "IOMMU转换与coherent、streaming DMA顺序和同步要求"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "vfio-topology",
+      "title": "VFIO - Virtual Function I/O",
+      "url": "https://docs.kernel.org/driver-api/vfio.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "DMA隔离",
+        "设备互连影响隔离粒度和IOMMU groups"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "pci-sysfs-topology",
+      "title": "Accessing PCI device resources through sysfs",
+      "url": "https://docs.kernel.org/PCI/sysfs-pci.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "PCI sysfs local_cpus邻近CPU掩码"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    },
+    {
+      "key": "qemu-numa-topology",
+      "title": "QEMU Invocation",
+      "url": "https://www.qemu.org/docs/master/system/invocation.html",
+      "checked": "2026-10-22",
+      "kind": "primary-project-documentation",
+      "supports": [
+        "客户机NUMA拓扑配置",
+        "内存后端host-nodes与policy区别于客户机资源分组"
+      ],
+      "chapters": [
+        "23-topology"
+      ]
+    }
+  ]
+}

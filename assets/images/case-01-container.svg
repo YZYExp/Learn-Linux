@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1320" viewBox="0 0 800 1320" role="img" aria-labelledby="title desc">
+<title id="title">案例一：从镜像到一个容器服务</title><desc id="desc">镜像内容、进程环境、网络与持久化分别组装。原创教学示意，非实际时序或性能测量。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#157d7b"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#cd713e"/></marker></defs>
+<rect width="800" height="1320" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif}</style>
+<text x="44" y="55" font-size="29" fill="#19364a" font-weight="700" text-anchor="start">案例一：从镜像到一个容器服务</text>
+<text x="44" y="91" font-size="20" fill="#5a6c75" font-weight="400" text-anchor="start">镜像内容、进程环境、网络与持久化分别组装</text>
+<path d="M44 116H756" stroke="#aebbbd"/>
+<rect x="60" y="145" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="182" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">① 镜像提供文件内容</text>
+<text x="82" y="217" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">镜像层描述根文件系统变化；不是运行中的进程。</text>
+<text x="82" y="249" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">常见 Linux 存储路径可用 OverlayFS 合并层。</text>
+<path d="M400 290L400 340" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="340" width="680" height="145" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="377" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">② 运行时准备执行环境</text>
+<text x="82" y="412" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">挂载根目录与所需文件系统，设置资源视图。</text>
+<text x="82" y="444" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">namespace、cgroup、权限配置各自承担不同职责。</text>
+<path d="M400 485L400 535" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="535" width="680" height="145" rx="18" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="572" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">③ 启动 Linux 进程</text>
+<text x="82" y="607" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">进程使用宿主 Linux 内核执行系统调用。</text>
+<text x="82" y="639" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">应用仍需要库、配置、凭据与可访问的数据。</text>
+<path d="M235 680L235 735" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<path d="M565 680L565 735" fill="none" stroke="#157d7b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="60" y="735" width="325" height="180" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="772" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">网络连接</text>
+<text x="82" y="807" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">接口与路由</text>
+<text x="82" y="839" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">端口发布／转发</text>
+<text x="82" y="871" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">取决于网络方案</text>
+<rect x="415" y="735" width="325" height="180" rx="18" fill="#f7e9df" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="437" y="772" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">持久化连接</text>
+<text x="437" y="807" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">卷或绑定挂载</text>
+<text x="437" y="839" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">权限与文件语义</text>
+<text x="437" y="871" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">独立于可写容器层</text>
+<rect x="60" y="965" width="680" height="170" rx="18" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="82" y="1002" font-size="25" fill="#19364a" font-weight="700" text-anchor="start">读图边界</text>
+<text x="82" y="1037" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">这是常见 Linux 容器的组织模型，不是唯一启动时序。</text>
+<text x="82" y="1069" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">镜像层不强制要求 OverlayFS；网络也不必使用网桥。</text>
+<text x="82" y="1101" font-size="21" fill="#5a6c75" font-weight="400" text-anchor="start">在 macOS 上运行时，Linux 内核通常位于虚拟机中。</text>
+<text x="44" y="1292" font-size="17" fill="#5a6c75" font-weight="400" text-anchor="start">原创机制示意 · 箭头表示关系或可能路径，并非完整执行轨迹</text>
+</svg>

@@ -68,3 +68,6 @@ ls -l /dev/kvm
 资料读取日期为 2026-10-22。二级页表部分明确以 x86 文档为例；其他架构的术语与实现不可直接照搬。本章展示常见 KVM/VMM 分工，不囊括机密计算、所有中断加速和嵌套路径。图中简化不构成性能比例，也不构成隔离完整性的实验证明。
 
 本章资料：[KVM API](https://docs.kernel.org/virt/kvm/api.html)、[嵌套 KVM](https://docs.kernel.org/virt/kvm/x86/running-nested-guests.html)、[x86 MMU](https://docs.kernel.org/virt/kvm/x86/mmu.html)、[virtio](https://docs.kernel.org/driver-api/virtio/virtio.html)、[vhost-user](https://www.qemu.org/docs/master/interop/vhost-user.html)、[VFIO](https://docs.kernel.org/driver-api/vfio.html)。
+
+
+进一步阅读：[第 23 章　硬件与性能拓扑](23-topology.md)，补充本章机制在共享数据、软件集成或资源放置中的延伸。
