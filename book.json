@@ -167,7 +167,10 @@
   ],
   "site": {
     "source_directory": "site",
-    "implemented": false,
-    "content_source": "book.json"
+    "implemented": true,
+    "content_source": "book.json",
+    "output_directory": "build/site",
+    "base_path": "/Learn-Linux/",
+    "hosting": "GitHub Pages"
   }
 }

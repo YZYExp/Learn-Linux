@@ -31,7 +31,7 @@ python3 scripts/build_book.py
 
 第一条检查章节清单、标题一致性、相对资源、引用登记、代码围栏、SVG XML 及 Git 初始提交。第二条重新绘制精确机制图。第三条生成合订 Markdown、PNG 和 EPUB，并对每幅 PNG 及 EPUB 内嵌图片完整解码，产物放在 `build/`。不要求联网生成正文或插图，不重跑 AI 封面。
 
-`chapters/` 是分章主稿，`appendices/` 放附录，`assets/images/` 是图片源，`references/` 是来源与核查记录。后续 Home Page 源码预留为 `site/`，直接读取同一份章节清单与主稿；本版未生成或部署网站。
+`chapters/` 是分章主稿，`appendices/` 放附录，`assets/images/` 是图片源，`references/` 是来源与核查记录。在线阅读站源码位于 `site/`，由 `scripts/build_site.py` 直接读取同一份章节清单与主稿，不另存一套正文。
 
 ## Git 与交付
 
@@ -44,3 +44,22 @@ git clone history.git.bundle linux-book-with-history
 未指定远端，也未推送到任何旧书仓库。具体检查与未覆盖范围见 [核查记录](references/validation.md)。
 
 第 1.1 版的独立审稿意见、证据和处理结果见 [交叉审稿记录](references/reviews/summary.md)。
+
+
+## GitHub Pages
+
+发布目标：`YZYExp/Learn-Linux`。首页、分章阅读、原始资料、审稿记录、全文搜索、深浅主题和 EPUB 下载由同一套源文件构建。
+
+```sh
+python3 -m pip install -r site/requirements.txt
+python3 scripts/build_book.py
+python3 scripts/build_site.py --base-path /Learn-Linux/
+```
+
+输出为 `build/site/`；本地从域名根目录预览时，可将 `--base-path` 改为 `/`。图解使用原始 SVG，保持完整比例，正文中可打开原图。
+
+`.github/workflows/pages.yml` 在推送 main 和手动运行时构建全书、检查图片并发布页面；拉取请求只做构建检查。CI 使用完整 Git 历史，以验证根提交只含空 README；同时保存 EPUB、合订 Markdown 与验证报告作为 Actions artifacts。构建依赖 Pandoc、Inkscape、Noto CJK 字体、Markdown 和 Pillow，安装步骤已写入工作流。
+
+首次发布需要在仓库 Settings → Pages → Build and deployment 中将 Source 选为 **GitHub Actions**。工作流不内置访问令牌，也不通过扩大仓库访问权限来替代这一设置；启用后重新运行即可部署。
+
+审稿版书稿与来源沿用原有逐步提交。若通过 GitHub API 同步历史，提交内容和顺序可保持一致，但提交 SHA 与创建时间会由远端重新生成。
