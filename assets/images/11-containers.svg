@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
+<title id="title">容器：由运行时装配出来的隔离进程</title><desc id="desc">镜像描述文件内容；运行时创建进程及其运行环境。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#157d7b"/></marker><marker id="arrowO" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#cd713e"/></marker></defs>
+<rect width="1200" height="880" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif}.body{font-size:20px}.small{font-size:17px;fill:#5a6c75}</style>
+<text x="54" y="60" font-size="32" fill="#19364a" text-anchor="start" font-weight="700">容器：由运行时装配出来的隔离进程</text>
+<text x="54" y="99" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">镜像描述文件内容；运行时创建进程及其运行环境。</text>
+<path d="M54 123H1146" stroke="#aebbbd"/>
+<rect x="65" y="180" width="300" height="115" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="215.0" y="215" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">OCI 镜像</text>
+<text x="215.0" y="246" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">内容层与配置</text>
+<text x="215.0" y="273" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">分发时的标准化对象</text>
+<rect x="450" y="180" width="300" height="115" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="215" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">运行时输入</text>
+<text x="600.0" y="246" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">rootfs + 运行配置</text>
+<text x="600.0" y="273" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">高层工具负责准备</text>
+<rect x="835" y="180" width="300" height="115" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="985.0" y="215" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">OCI runtime</text>
+<text x="985.0" y="246" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">设置隔离与权限</text>
+<text x="985.0" y="273" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">创建容器进程</text>
+<path d="M365 237L450 237" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M750 237L835 237" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="370" width="1070" height="315" rx="20" fill="none" stroke="#aebbbd" stroke-dasharray="6 6"/>
+<text x="85" y="403" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">同一 Linux 宿主</text>
+<rect x="120" y="445" width="310" height="105" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="275.0" y="480" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">容器 A 的进程</text>
+<text x="275.0" y="511" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">自己的部分资源视图</text>
+<rect x="770" y="445" width="310" height="105" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="925.0" y="480" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">容器 B 的进程</text>
+<text x="925.0" y="511" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">自己的部分资源视图</text>
+<rect x="430" y="585" width="340" height="65" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="625.5" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">共享宿主 Linux 内核</text>
+<path d="M275 550L430 610" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M925 550L770 610" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M985,295L985,340L925,340L925,445" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="64" y="745" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">Linux 容器在 macOS 上通常运行于 Linux 虚拟机中；“共享内核”指该虚拟机的 Linux 内核。</text>
+<path d="M54 815H1146" stroke="#aebbbd"/>
+<text x="54" y="848" font-size="17" fill="#5a6c75" text-anchor="start" font-weight="400">原创机制示意 · 省略实现细节</text>
+<text x="1146" y="848" font-size="17" fill="#5a6c75" text-anchor="end" font-weight="400">11</text>
+</svg>

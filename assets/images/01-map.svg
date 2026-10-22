@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<title id="title">Linux：从硬件到生态的分层地图</title><desc id="desc">同一套内核机制，通过用户态工具组合成不同的系统。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#157d7b"/></marker><marker id="arrowO" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#cd713e"/></marker></defs>
+<rect width="1200" height="820" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif}.body{font-size:20px}.small{font-size:17px;fill:#5a6c75}</style>
+<text x="54" y="60" font-size="32" fill="#19364a" text-anchor="start" font-weight="700">Linux：从硬件到生态的分层地图</text>
+<text x="54" y="99" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">同一套内核机制，通过用户态工具组合成不同的系统。</text>
+<path d="M54 123H1146" stroke="#aebbbd"/>
+<rect x="70" y="160" width="1060" height="90" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="195" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">应用与工作负载</text>
+<text x="600.0" y="226" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">终端程序 · 桌面应用 · 数据库 · Android 应用 · 容器内程序</text>
+<rect x="70" y="280" width="510" height="100" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="325.0" y="315" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">用户态基础</text>
+<text x="325.0" y="346" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">库与运行时 · 服务管理 · 图形与音频</text>
+<rect x="620" y="280" width="510" height="100" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="875.0" y="315" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">生态组织</text>
+<text x="875.0" y="346" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">发行版 · 包管理 · OCI · 虚拟机管理</text>
+<path d="M330 250L330 280" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M870 250L870 280" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="70" y="430" width="1060" height="140" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="465" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">Linux 内核</text>
+<text x="600.0" y="496" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">进程与调度    内存与页表    VFS 与存储</text>
+<text x="600.0" y="523" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">网络栈    驱动    namespace / cgroup    KVM</text>
+<path d="M330 380L330 430" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M870 380L870 430" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="70" y="620" width="1060" height="80" rx="15" fill="#fbebdf" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="668.0" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">硬件：CPU · 内存 · 存储 · 网卡 · GPU</text>
+<path d="M600 570L600 620" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M54 755H1146" stroke="#aebbbd"/>
+<text x="54" y="788" font-size="17" fill="#5a6c75" text-anchor="start" font-weight="400">原创机制示意 · 省略实现细节</text>
+<text x="1146" y="788" font-size="17" fill="#5a6c75" text-anchor="end" font-weight="400">01</text>
+</svg>

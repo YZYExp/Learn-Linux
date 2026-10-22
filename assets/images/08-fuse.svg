@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">FUSE：把文件系统的一部分实现放到用户态</title><desc id="desc">普通文件接口保留，实际请求可以往返于内核与守护进程。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#157d7b"/></marker><marker id="arrowO" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#cd713e"/></marker></defs>
+<rect width="1200" height="900" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif}.body{font-size:20px}.small{font-size:17px;fill:#5a6c75}</style>
+<text x="54" y="60" font-size="32" fill="#19364a" text-anchor="start" font-weight="700">FUSE：把文件系统的一部分实现放到用户态</text>
+<text x="54" y="99" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">普通文件接口保留，实际请求可以往返于内核与守护进程。</text>
+<path d="M54 123H1146" stroke="#aebbbd"/>
+<rect x="65" y="155" width="1070" height="245" rx="20" fill="none" stroke="#aebbbd" stroke-dasharray="6 6"/>
+<text x="85" y="188" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">用户态</text>
+<rect x="95" y="225" width="240" height="105" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="215.0" y="260" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">应用</text>
+<text x="215.0" y="291" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">open / read / write</text>
+<rect x="485" y="225" width="260" height="105" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="615.0" y="260" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">FUSE 守护进程</text>
+<text x="615.0" y="291" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">实现文件操作</text>
+<text x="615.0" y="318" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">例如 SSHFS</text>
+<rect x="885" y="225" width="220" height="105" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="995.0" y="260" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">后端</text>
+<text x="995.0" y="291" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">本地数据 / 远端服务</text>
+<path d="M745 277L885 277" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="445" width="1070" height="225" rx="20" fill="none" stroke="#aebbbd" stroke-dasharray="6 6"/>
+<text x="85" y="478" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">内核态</text>
+<rect x="95" y="515" width="240" height="100" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="215.0" y="550" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">VFS</text>
+<text x="215.0" y="581" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">统一文件接口</text>
+<rect x="485" y="515" width="260" height="100" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="615.0" y="550" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">FUSE 内核端</text>
+<text x="615.0" y="581" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">请求队列与缓存</text>
+<rect x="885" y="515" width="220" height="100" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="995.0" y="550" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">/dev/fuse</text>
+<text x="995.0" y="581" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">连接的通信接口</text>
+<path d="M215 330L215 515" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M335 565L485 565" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M745 565L885 565" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M995,515L995,425L615,425L615,330" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="825" y="414" font-size="17" fill="#157d7b" text-anchor="middle" font-weight="400">守护进程读取请求</text>
+<path d="M485,300L400,300L400,485L615,485L615,515" fill="none" stroke="#cd713e" stroke-width="2.5" marker-end="url(#arrowO)" stroke-dasharray="6 5"/>
+<text x="400" y="448" font-size="17" fill="#cd713e" text-anchor="middle" font-weight="400">回复</text>
+<text x="64" y="735" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">并非每次访问都一定跨越全部路径：缓存命中、协商能力与具体实现会改变往返。</text>
+<path d="M54 835H1146" stroke="#aebbbd"/>
+<text x="54" y="868" font-size="17" fill="#5a6c75" text-anchor="start" font-weight="400">原创机制示意 · 省略实现细节</text>
+<text x="1146" y="868" font-size="17" fill="#5a6c75" text-anchor="end" font-weight="400">08</text>
+</svg>

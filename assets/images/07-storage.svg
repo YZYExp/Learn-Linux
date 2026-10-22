@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
+<title id="title">写入成功，为什么还不等于持久保存</title><desc id="desc">缓冲写入、后台回写与同步请求分别回答不同的问题。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#157d7b"/></marker><marker id="arrowO" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#cd713e"/></marker></defs>
+<rect width="1200" height="880" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif}.body{font-size:20px}.small{font-size:17px;fill:#5a6c75}</style>
+<text x="54" y="60" font-size="32" fill="#19364a" text-anchor="start" font-weight="700">写入成功，为什么还不等于持久保存</text>
+<text x="54" y="99" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">缓冲写入、后台回写与同步请求分别回答不同的问题。</text>
+<path d="M54 123H1146" stroke="#aebbbd"/>
+<rect x="65" y="190" width="220" height="115" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="175.0" y="225" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">应用 write()</text>
+<text x="175.0" y="256" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">提交字节</text>
+<rect x="370" y="190" width="260" height="115" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="500.0" y="225" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">页缓存脏页</text>
+<text x="500.0" y="256" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">内存中的修改</text>
+<text x="500.0" y="283" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">通常可先返回</text>
+<rect x="715" y="190" width="220" height="115" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="825.0" y="225" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">回写 / 文件系统</text>
+<text x="825.0" y="256" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">组织数据与元数据</text>
+<path d="M285 247L370 247" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M630 247L715 247" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="715" y="420" width="220" height="115" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="825.0" y="455" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">块层与驱动</text>
+<text x="825.0" y="486" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">I/O 排队与提交</text>
+<rect x="370" y="420" width="260" height="115" rx="15" fill="#fbebdf" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="500.0" y="455" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">存储设备</text>
+<text x="500.0" y="486" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">还涉及设备缓存</text>
+<text x="500.0" y="513" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">持久性依赖协议与实现</text>
+<path d="M825 305L825 420" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M715 477L630 477" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="420" width="220" height="115" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="175.0" y="455" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">应用 fsync()</text>
+<text x="175.0" y="486" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">请求相应同步保证</text>
+<path d="M175,420L175,355L500,355L500,305" fill="none" stroke="#cd713e" stroke-width="2.5" marker-end="url(#arrowO)"/>
+<text x="470" y="346" font-size="17" fill="#cd713e" text-anchor="middle" font-weight="400">等待必要的同步工作</text>
+<text x="64" y="645" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">日志、写时复制与 fsync 不是同一个机制；它们解决的问题部分不同。</text>
+<text x="64" y="673" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">新建文件的名字持久化，还可能需要对父目录执行 fsync；具体保证以文件系统为准。</text>
+<path d="M54 815H1146" stroke="#aebbbd"/>
+<text x="54" y="848" font-size="17" fill="#5a6c75" text-anchor="start" font-weight="400">原创机制示意 · 省略实现细节</text>
+<text x="1146" y="848" font-size="17" fill="#5a6c75" text-anchor="end" font-weight="400">07</text>
+</svg>

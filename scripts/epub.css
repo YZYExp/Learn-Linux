@@ -1,0 +1,10 @@
+body { font-family: sans-serif; line-height: 1.75; color: #243a4a; }
+p { margin: 0.65em 0; }
+h1 { line-height: 1.4; color: #183b50; margin-top: 1.8em; }
+h2 { line-height: 1.5; margin-top: 1.5em; }
+img { display: block; max-width: 100%; height: auto; margin: 1.1em auto; }
+table { border-collapse: collapse; font-size: 0.87em; width: 100%; }
+td, th { padding: 0.45em; border-bottom: 1px solid #ccd9dc; text-align: left; }
+th { background: #e9f0f0; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f2f3ef; padding: 0.8em; font-size: 0.85em; }
+a { color: #196e76; overflow-wrap: anywhere; }

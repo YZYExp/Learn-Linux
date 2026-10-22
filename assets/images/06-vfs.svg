@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">VFS：名字路径与打开的文件是两条关系</title><desc id="desc">打开后，文件描述符关联的是打开文件状态；路径只是查找入口。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#157d7b"/></marker><marker id="arrowO" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#cd713e"/></marker></defs>
+<rect width="1200" height="900" fill="#f7f5ef"/>
+<style>text{font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif}.body{font-size:20px}.small{font-size:17px;fill:#5a6c75}</style>
+<text x="54" y="60" font-size="32" fill="#19364a" text-anchor="start" font-weight="700">VFS：名字路径与打开的文件是两条关系</text>
+<text x="54" y="99" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">打开后，文件描述符关联的是打开文件状态；路径只是查找入口。</text>
+<path d="M54 123H1146" stroke="#aebbbd"/>
+<rect x="65" y="160" width="1070" height="220" rx="20" fill="none" stroke="#aebbbd" stroke-dasharray="6 6"/>
+<text x="85" y="193" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">路径查找：把名字解析为文件对象</text>
+<rect x="100" y="230" width="250" height="95" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="225.0" y="265" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">路径 /data/a</text>
+<text x="225.0" y="296" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">目录项查找</text>
+<rect x="475" y="230" width="250" height="95" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="265" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">dentry</text>
+<text x="600.0" y="296" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">名字与父目录关系</text>
+<rect x="850" y="230" width="250" height="95" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="975.0" y="265" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">inode</text>
+<text x="975.0" y="296" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">文件对象与元数据</text>
+<path d="M350 277L475 277" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M725 277L850 277" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="65" y="430" width="1070" height="230" rx="20" fill="none" stroke="#aebbbd" stroke-dasharray="6 6"/>
+<text x="85" y="463" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">打开状态：多个 fd 可以共享同一个打开文件描述</text>
+<rect x="100" y="500" width="250" height="95" rx="15" fill="#e9eef5" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="225.0" y="535" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">进程的 fd 表</text>
+<text x="225.0" y="566" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">例如 fd 3 / dup 后 fd 4</text>
+<rect x="475" y="500" width="250" height="95" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="600.0" y="535" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">open file description</text>
+<text x="600.0" y="566" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">偏移 · 状态标志</text>
+<rect x="850" y="500" width="250" height="95" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
+<text x="975.0" y="535" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">文件引用</text>
+<text x="975.0" y="566" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">关联 dentry / mount</text>
+<path d="M350 547L475 547" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M725 547L850 547" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M975,500L1120,500L1120,410L975,410L975,325" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="64" y="720" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">unlink 移除目录中的名字；现存的打开引用可以继续访问该对象。</text>
+<text x="64" y="748" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">inode 的磁盘格式与内核中的 VFS inode 是相关但不同层次的表示。</text>
+<path d="M54 835H1146" stroke="#aebbbd"/>
+<text x="54" y="868" font-size="17" fill="#5a6c75" text-anchor="start" font-weight="400">原创机制示意 · 省略实现细节</text>
+<text x="1146" y="868" font-size="17" fill="#5a6c75" text-anchor="end" font-weight="400">06</text>
+</svg>
