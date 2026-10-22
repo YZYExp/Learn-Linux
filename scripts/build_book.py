@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 import zipfile
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / 'build'
@@ -39,16 +40,23 @@ def verify_epub(path, expected_images):
             raise ValueError(f'Expected {expected_images} embedded images, found {len(images)}')
         for name in images:
             verify_png(io.BytesIO(archive.read(name)))
-        for name in names:
-            if name.endswith(('.xhtml', '.xml', '.opf', '.ncx')):
-                root = ET.fromstring(archive.read(name))
-                for element in root.iter():
-                    src = element.attrib.get('src')
-                    if src and not src.startswith(('data:', 'http:', 'https:')):
-                        target = posixpath.normpath(posixpath.join(posixpath.dirname(name),src.split('#')[0]))
-                        if target not in names:
-                            raise ValueError(f'Missing EPUB resource: {name}: {src}')
-    return {'embedded_png_images':len(images), 'epub_image_decode':'pass', 'epub_xml_and_image_paths':'pass'}
+        documents = {name:ET.fromstring(archive.read(name)) for name in names
+                     if name.endswith(('.xhtml', '.xml', '.opf', '.ncx'))}
+        ids = {name:{node.get('id') for node in root.iter() if node.get('id')}
+               for name,root in documents.items()}
+        for name,root in documents.items():
+            for element in root.iter():
+                for attr in ('src','href'):
+                    value = element.get(attr)
+                    if not value:continue
+                    link=urlsplit(value)
+                    if link.scheme or link.netloc:continue
+                    target=posixpath.normpath(posixpath.join(posixpath.dirname(name),unquote(link.path))) if link.path else name
+                    if target not in names:
+                        raise ValueError(f'Missing EPUB resource or link: {name}: {value}')
+                    if link.fragment and target in ids and unquote(link.fragment) not in ids[target]:
+                        raise ValueError(f'Missing EPUB anchor: {name}: {value}')
+    return {'embedded_png_images':len(images), 'epub_image_decode':'pass', 'epub_xml_and_image_paths':'pass', 'epub_internal_links':'pass'}
 
 def validate(book):
     errors = []
@@ -131,8 +139,23 @@ def main():
     BUILD.mkdir(exist_ok=True)
     toc = '\n'.join('- '+x['title'] for x in book['chapters']+book.get('cases',[])+book['appendices'])
     content = f"# {book['title']}\n\n{book['subtitle']}\n\n版本 {book['edition']} · {book['date']}\n\n![封面概念插画，AI 生成，非机制图](../{book['cover']})\n\n# 总目录\n\n{toc}\n\n"
-    for path in source_files(book):
-        content += path.read_text().strip()+'\n\n'
+    paths=source_files(book)
+    anchors={path.resolve():'book-section-'+str(i) for i,path in enumerate(paths)}
+    epub_body=''
+    for path in paths:
+        text=path.read_text().strip()
+        content+=text+'\n\n'
+        lines=text.splitlines()
+        lines[0]+=' {#'+anchors[path.resolve()]+'}'
+        def rewrite_chapter_link(match):
+            label,target=match.group(1),match.group(2)
+            link=urlsplit(target)
+            if link.scheme or link.netloc or not link.path:return match.group(0)
+            resolved=(path.parent/unquote(link.path)).resolve()
+            if resolved in anchors:
+                return '['+label+'](#'+anchors[resolved]+')'
+            return match.group(0)
+        epub_body+=re.sub(r'(?<!!)\[([^\]]+)\]\(([^)]+)\)',rewrite_chapter_link,'\n'.join(lines))+'\n\n'
     (BUILD/'Linux-From-the-Ground-Up.md').write_text(content)
     write_source_index(records)
     (BUILD/'validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
@@ -148,7 +171,7 @@ def main():
         verify_png(temporary)
         temporary.replace(output)
     # Cover is carried by EPUB metadata, avoiding a duplicate picture in the text.
-    epub_content = re.sub(r'!\[封面概念插画[^\]]*\]\([^\n]+\)\n','',content)
+    epub_content = f"# {book['title']}\n\n版本 {book['edition']} · {book['date']}\n\n"+epub_body
     epub_content = re.sub(r'\.\./assets/images/([^ )]+)\.svg',r'epub-images/\1.png',epub_content)
     (BUILD/'epub-source.md').write_text(epub_content)
     subprocess.run([pandoc,'epub-source.md','--from=markdown','--to=epub3','--toc',
