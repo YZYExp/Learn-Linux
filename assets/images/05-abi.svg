@@ -15,8 +15,9 @@
 <text x="597.5" y="241" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">内核装载 + 动态链接器</text>
 <text x="597.5" y="268" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">映射程序及共享库</text>
 <rect x="880" y="175" width="250" height="110" rx="15" fill="#e5f1ed" stroke="#aebbbd" stroke-width="1.5"/>
-<text x="1005.0" y="210" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">进程开始运行</text>
-<text x="1005.0" y="241" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">机器指令由 CPU 执行</text>
+<text x="1005.0" y="210" font-size="23" fill="#19364a" text-anchor="middle" font-weight="600">程序自身开始执行</text>
+<text x="1005.0" y="241" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">加载器此前已在</text>
+<text x="1005.0" y="268" font-size="18" fill="#5a6c75" text-anchor="middle" font-weight="400">当前进程中执行</text>
 <path d="M315 230L440 230" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M755 230L880 230" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
 <rect x="440" y="385" width="315" height="100" rx="15" fill="#ffffff" stroke="#aebbbd" stroke-width="1.5"/>

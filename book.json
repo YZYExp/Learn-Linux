@@ -2,7 +2,7 @@
   "title": "Linux，自底向上",
   "subtitle": "从硬件与进程，到文件系统、容器、虚拟化与系统生态",
   "language": "zh-CN",
-  "edition": "1.0",
+  "edition": "1.1",
   "date": "2026-10-22",
   "description": "面向已有软件背景读者的图解原理读本，以机制、边界与可核查来源组织知识。",
   "cover": "assets/images/cover.png",

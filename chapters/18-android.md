@@ -1,4 +1,4 @@
-# 18　Android：同一内核上长出的另一套平台
+# 第 18 章　Android：同一内核上长出的另一套平台
 
 把手机接到电脑，打开一个终端，看到进程和目录，会让熟悉 Linux 的人产生亲切感。但亲切感不等于二进制兼容。Android 是理解“内核”与“平台”区别的好例子：它确实以 Linux 为基础，却通过自己的库、运行时、服务协议和应用模型，组织出另一套使用方式。
 
@@ -28,7 +28,7 @@ ART 是 Android 的托管运行时，运行 DEX 格式程序，并承担编译�
 
 一个简化的教学例子是：应用想使用某项受管理的能力，框架代理把请求发给对应服务，服务验证调用者并完成工作，再返回结果。这里的“像调用方法”是一种开发接口，不表示过程中没有调度、复制或等待，也不表示拥有通信通道便拥有所有操作权限。
 
-接口能否升级同样重要。Stable AIDL 为跨平台与厂商边界的接口提供稳定性要求；AOSP 文档专门说明了 AIDL HAL 的适用条件和构建约束。旧版 Android 文档还会讨论 HIDL 与不同 Binder 域，阅读时必须留意年代，不能把某一代设备的结构画成永久标准。[来源：AOSP AIDL for HALs](https://source.android.com/docs/core/architecture/aidl/aidl-hals)
+接口能否升级同样重要。Stable AIDL 为 Android 系统组件与厂商组件之间的接口提供稳定性要求；AOSP 文档专门说明了 AIDL HAL 的适用条件和构建约束。旧版 Android 文档还会讨论 HIDL 与不同 Binder 域，阅读时必须留意年代，不能把某一代设备的结构画成永久标准。[来源：AOSP AIDL for HALs](https://source.android.com/docs/core/architecture/aidl/aidl-hals)
 
 ## HAL 不是又一层万能驱动
 

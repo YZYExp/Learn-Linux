@@ -1,4 +1,4 @@
-# 20　贯通全书：在 Mac 上追踪一个 Linux 服务
+# 第 20 章　贯通全书：在 Mac 上追踪一个 Linux 服务
 
 现在把前面的机制放进同一个情境：你在 Mac 上运行一个 Linux 容器，容器中的服务读取项目文件，处理请求，再把结果返回浏览器。它没有明显报错，却比预期慢。应该先换内核、增大内存，还是修改网络参数？
 
@@ -26,7 +26,7 @@
 
 ## 第三步：给 CPU 空闲一个准确含义
 
-你看见 Mac 总 CPU 占用不高，不能立刻排除 CPU 相关约束。Linux VM 分到的资源、容器所在 cgroup 的预算、可运行线程数，分别限制不同范围。cgroup v2 的 `cpu.max` 管理带宽预算，`cpu.stat` 可以提供节流相关计数；这些量回答的是组内限制，不是整台物理机器的统一使用率。[来源：Linux Control Group v2，CPU Interface Files](https://docs.kernel.org/admin-guide/cgroup-v2.html)
+你看见 Mac 总 CPU 占用不高，不能立刻排除 CPU 相关约束。Linux VM 分到的资源、容器所在 cgroup 的预算、可运行线程数，分别限制不同范围。对于本例中的普通公平调度任务，cgroup v2 的 `cpu.max` 管理带宽预算，`cpu.stat` 可以提供节流相关计数；这些量回答的是组内限制，不是整台物理机器的统一使用率。[来源：Linux Control Group v2，CPU Interface Files](https://docs.kernel.org/admin-guide/cgroup-v2.html)
 
 反过来，观察到节流计数增加，也不够证明它解释了全部用户延迟。还需要对齐时间窗口，确认增长发生在慢请求期间，并区分应用是否同时在等文件、网络或锁。一个计数是证据片段，不是自动完成的因果说明。
 

@@ -26,7 +26,7 @@ titles = [
 ('20-capstone', '贯通全书：在 Mac 上追踪一个 Linux 服务'),
 ]
 book = {'title':'Linux，自底向上', 'subtitle':'从硬件与进程，到文件系统、容器、虚拟化与系统生态',
- 'language':'zh-CN', 'edition':'1.0', 'date':'2026-10-22',
+ 'language':'zh-CN', 'edition':'1.1', 'date':'2026-10-22',
  'description':'面向已有软件背景读者的图解原理读本，以机制、边界与可核查来源组织知识。',
  'cover':'assets/images/cover.png', 'chapters':[
  {'id':slug.split('-')[0], 'title':title, 'order':n, 'source':f'chapters/{slug}.md', 'slug':slug}

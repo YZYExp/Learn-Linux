@@ -36,6 +36,7 @@
 <path d="M400 590L300 590" fill="none" stroke="#157d7b" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="64" y="725" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">initramfs 不是所有 Linux 的必需品；systemd 也不是 Linux 内核的一部分。</text>
 <text x="64" y="753" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">图中的交接是概念路径，不代表所有设备相同的实际启动时序。</text>
+<text x="64" y="781" font-size="19" fill="#5a6c75" text-anchor="start" font-weight="400">也可直接在 initramfs 中提供最终用户环境，无须另挂真实根。</text>
 <path d="M54 835H1146" stroke="#aebbbd"/>
 <text x="54" y="868" font-size="17" fill="#5a6c75" text-anchor="start" font-weight="400">原创机制示意 · 省略实现细节</text>
 <text x="1146" y="868" font-size="17" fill="#5a6c75" text-anchor="end" font-weight="400">02</text>
